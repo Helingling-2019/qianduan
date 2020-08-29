@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<link rel="stylesheet" href="layui/css/layui.css" media="all">
+	
+	
+</head>
+<body>
+	<style>
+      /* 为了区分效果
+      div[carousel-item]>*{text-align: center; line-height: 280px; color: #fff;}
+      div[carousel-item]>*:nth-child(2n){background-color: #5FB878;}
+      div[carousel-item]>*:nth-child(2n+1){background-color: #009688;}
+      #test2 div[carousel-item]>*{line-height: 120px;}  */
+	  .layui-carousel div div{ width:100%; background-repeat: no-repeat; background-position: center top;}
+	  .layui-carousel[lay-arrow=always] .layui-carousel-arrow{ display: none;}
+	  .layui-carousel div h2{ text-align: center; color:#fff; margin-top:300px;}
+    </style>
+	<div class="layui-carousel" id="test1">
+      <div carousel-item>
+    <div style="background-image:url(images/1.jpg)"><h2>图片一</h2></div>
+    <div style="background-image:url(images/2.jpg)"><h2>图片二</h2></div>
+    <div style="background-image:url(images/3.jpg)"><h2>图片三</h2></div>
+    <!-- <div>条目4</div>
+    <div>条目5</div> -->
+  </div>
+</div>
+<!-- 条目中可以是任意内容，如：<img src=""> -->
+<script src="layui/layui.js"></script>
+<script>
+	layui.use('carousel', function(){
+	  var carousel = layui.carousel;
+	  //建造实例
+	  carousel.render({
+	    elem: '#test1'
+	    ,width: '100%' //设置容器宽度
+	    ,arrow: 'always' //始终显示箭头
+	    //,anim: 'updown' //切换动画方式
+		,height:'350px'
+	  });
+	});
+	</script>
+</body>
+</html>

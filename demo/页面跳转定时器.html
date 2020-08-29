@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="jquery2.0.js"></script>
+	<style>
+		*{margin: 0;padding: 0;}
+		.shadow{
+			position:fixed;
+			left:0;
+			top:0;
+			background:rgba(0,0,0,.3);
+			width:100%;
+			height:100%;
+			display:none;
+		}
+		.pop{
+			position: fixed;
+			left:50%;
+			top:50%;
+			margin-left: -240px;
+			margin-top: -100px;
+			width:480px;
+			height:200px;
+			background:#cfcfcf;
+			font-size: 15px;
+			border-radius: 6px;
+			display: none;
+		}
+		.pay{
+			width:100px;
+			height:100px;
+			
+		}
+	</style>
+</head>
+<body>
+	<button class="pay">付款</button>
+	<div class="shadow"></div>
+	<div class="pop">
+		<p>还行<span>2秒</span></p>
+		
+	</div>
+	<script>
+		var str = " ";
+		var timer = 5;
+		$("pop p span").text(timer);
+		$(".pay").on("click",function(){
+			$(".shadow").fadeIn(100);
+			$(".pop").fadeIn();
+			flag = true;
+			if(flag){
+				setInterval(function(){
+					timer --;
+					if(timer == 0){
+						window.location.assign("index.html");
+					}else{
+						$(".pop p span").text(timer);
+					}
+				},1000);
+			}
+		})
+	</script>
+</body>
+</html>

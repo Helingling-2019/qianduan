@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<link rel="stylesheet" href="style.css" />
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="vue-router.js"></script>
+</head>
+<body>
+	<div id="nav">
+	<div class="nav">
+		<ul>
+			<li><router-link to="/index">首页</router-link></li>
+			<li><router-link to="/news">新闻中心</router-link></li>
+			<li><router-link to="/product">产品中心</router-link></li>
+			<li><router-link to="/contactUs">联系我们</router-link></li>
+		</ul>
+		
+	</div>
+	<router-view></router-view>
+	</div>
+	<script>
+	const index = {template:'<div class="index">首页内容</div>'};
+	const news = {template:'<div class="news">新闻中心版块</div>'};
+	const product = {template:'<div class="pro">产品中心版块</div>'};
+	const contactUs = {template:'<div class="cot">联系我们版块</div>'};
+	const routers = [
+		{path:'/index',component:index},
+		{path:'/news',component:news},
+		{path:'/product',component:product},
+		{path:'/contactUs',component:contactUs}
+	];
+	const router = new VueRouter({
+         routes:routers
+    });
+	var nav = new Vue({
+		el:"#nav",
+		router
+	})
+
+	</script>
+</body>
+</html>

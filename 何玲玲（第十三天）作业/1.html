@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+	<p><input type="number" v-model="kilometre">km</p>
+	<p><input type="text" v-model="metre">m</p>
+	</div>
+	<script>
+		var app = new Vue({
+			el:"#app",
+			data:{
+				kilometre:0,
+				metre:0
+			},
+			watch:{
+					
+				kilometre:function(value){
+					this.kilometre = value;
+					this.metre = value * 1000;
+				},
+				metre:function(value){
+					this.kilometre = value/1000;
+					this.metre = value;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+<style>
+	*{ margin:0; padding:0;}
+	#info{ margin:20px auto; table-layout:fixed;}
+	#info tr td{ text-align: center; padding:6px;}
+	#info button{ border:none; cursor: pointer; width:100px; height:38px; background:orange; color:#fff; margin:5px; outline:none; border-radius:6px;}
+	#info .change{ background:skyblue;}
+	.inp{ text-align: center; width:80px; color:#333; font-size:14px; border:1px solid #999; line-height:24px; border-radius:6px;}
+	.inp[disabled]{ border:none; text-align: center; width:80px; background:#fff; cursor:text; color:#333; font-size:14px; line-height:24px;}
+	.exam{ width:180px; height:24px; line-height:24px; padding:5px 8px; border-radius:6px; border:1px solid #888;}
+	.changBg{ background:#ccc;}
+	.selected .inp{ background-color:red; color:#fff;}
+</style>
+	<table id="info" width="800" border="1" bordercolor="#666">
+		<thead>
+		<tr>
+			<th width="60">序号</th>
+			<th width="100">姓名</th>
+			<th width="100">学号</th>
+			<th width="100">分数</th>
+			<th>操作</th>
+		</tr>
+		</thead>
+		<tbody>
+			
+		</tbody>
+		<!-- <tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr> -->
+		<tfoot>
+			<tr>
+				<td colspan="5"><button class="add">增加</button></td>
+			</tr>
+			<tr>
+				<td colspan="5"><input type="text" class="exam" placeholder="请输入你要查询的内容" /><button class="select">查询</button><button class="back">返回</button></td>
+			</tr>
+		</tfoot>
+	</table>
+	<script>
+		var arr = [
+			         {id:1,name:'张三',num:'001',score:60},
+					 {id:2,name:'李四',num:'002',score:60},
+					 {id:3,name:'王五',num:'003',score:76},
+					 {id:4,name:'钱六',num:'004',score:85},
+					 {id:5,name:'赵七',num:'005',score:90},
+					 {id:6,name:'李八',num:'006',score:50}
+			      ]; // order by asc / desc
+		var str = "";
+		for(var i=0; i<arr.length; i++){
+			str+="<tr><td>" + (i+1) + "</td><td><input type='text' class='inp' disabled value=" + arr[i]["name"] + " /></td><td><input type='text' class='inp' disabled value=" + arr[i]["num"] + " /></td><td><input type='text' class='inp' disabled value=" + arr[i]["score"] + " /></td><td><button class='delete'>删除</button><button class='change'>修改</button><span style='display:none;'>" + arr[i]["id"] + "</span></td></tr>"; 
+		};
+		$("#info tbody").html(str);
+		//删除数据
+		$(document).on("click",".delete",function(){
+			var conf = confirm("您确定要删除该信息吗？");
+			if(conf){
+				 $(this).parents("tr").nextAll("tr").each(function(){
+								   var $text = Number($(this).children("td").eq(0).text()) - 1;
+								   $(this).children("td").eq(0).text($text);
+				});
+			   $(this).parents("tr").remove(); //btn:["确认","取消"]
+			  
+			/*
+		var $index = $(this).parents("tr").children("td").eq(4).children("span").text();
+			 $.ajax({
+				data:{
+					pri:$index
+				}
+				url:"handleData.jsp"
+			}) */
+			}
+		});
+		//修改数据
+		var name = '';
+		var num = '';
+		var score = '';
+		$(document).on("click",".change",function(){
+			if($(this).hasClass("flag")){
+			newName = $(this).parents("tr").children("td").eq(1).children(".inp").val();
+			newNum = $(this).parents("tr").children("td").eq(2).children(".inp").val();
+			newScore = $(this).parents("tr").children("td").eq(3).children(".inp").val();
+			if(newName == name && newNum == num && newScore == score && name!=''){
+				alert("未修改任何数据！");
+				$(this).text("修改").removeClass("flag");	
+				$(this).parents("td").siblings("td").children(".inp").attr("disabled",true);
+			}else if(newName=="" || newNum =="" || newScore ==""){
+				alert("请完善信息！");
+			}else{
+				$(this).text("修改").removeClass("flag");	
+				$(this).parents("td").siblings("td").children(".inp").attr("disabled",true);
+				/* $.ajax({
+					data:{
+						name:newName,
+						num:newNum,
+						score:newScore
+					}
+				}) */
+			}
+			}else{
+		    name = $(this).parents("tr").children("td").eq(1).children(".inp").val();
+			num = $(this).parents("tr").children("td").eq(2).children(".inp").val();
+			score = $(this).parents("tr").children("td").eq(3).children(".inp").val();
+			$(this).text("保存").addClass("flag");
+			$(this).parents("td").siblings("td").children(".inp").removeAttr("disabled");
+			$(this).parents("tr").children("td").eq(1).children(".inp").focus();
+			
+			}
+		});
+		
+		$(".add").on("click",function(){
+			var prevNumber = Number($("#info tbody tr:last").find("td").eq(0).text()) + 1;
+			var newLine = "<tr><td>" + prevNumber +  "</td><td><input type='text' class='inp' value='' placeholder='请输入姓名' /></td><td><input type='text' class='inp' value='' placeholder='请输入学号' /></td><td><input type='text' class='inp' value='' placeholder='请输入分数' /></td><td><button class='delete'>删除</button><button class='change flag'>保存</button><span style='display:none'>" + prevNumber + "</span></td></tr>";
+			$("#info tbody").append($(newLine));
+		});
+		
+		$(".select").on("click",function(){
+			var $val = $(".exam").val();
+			if($val==""){ alert("请输入需要查询的内容！");
+			$(".exam").focus();
+			}else{
+				$("#info tbody tr").hide();
+				for(var i=0; i<$("#info tbody tr").length; i++){
+					for(var j=1; j<=3; j++){
+						if($("#info tbody tr").eq(i).children().eq(j).children("input").val() == $val){
+							$("#info tbody tr").eq(i).show().addClass("changBg").children("td").eq(j).addClass("selected");
+						}
+					}
+				}
+				if($("#info tbody tr.changBg").length ==0){
+					//alert(1);
+					$("#info tbody tr").show();
+					alert("没有找到相应的结果！");
+				}
+				/* $("#info tbody tr").each(function(){
+					if($(this).hasClass("changBg")){
+						$(this).show();
+					}else{
+						$(this).hide();
+					};
+				}) */
+			//$("#info tbody tr").hide();
+			}
+		});
+		$(".back").on("click",function(){
+			$("#info tbody tr").removeClass("changBg").show().children().removeClass("selected");
+			$(".exam").val('').focus();
+		})
+	</script>
+</body>
+</html>

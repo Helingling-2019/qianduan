@@ -1,0 +1,116 @@
+﻿一 简介
+	1985年几个瑞典小伙子，成立了一家公司。开发了Mysql的前身。
+	起初并不是想开发一个数据库。只是它们需要数据库功能。现有的无法提供，怎么办？
+	自己写一个。mysql就这么诞生了。随着这么多年的发展。mysql越来越流行。
+	mysql是C语言编写的一个关系型数据库。
+		建立在实体关系模型(Entity-Relationship Model)---ER图 上的数据库。
+		运用真实世界中事物与关系的观念，来解释数据库中表和表之间的关系。
+		
+	具有可选的存储引擎：ISRAM(不支持事务、擅长查询)、INNODB(支持事务)... 
+	功能完善(存储过程、函数、触发器)、
+	简单易用、性能优越、可靠、免费、开源。
+	应用场景：web站点、嵌入式系统(智能家居)
+	目前版本：8.x
+	关系型 sql标准：数据库、表、字段、字段类型、sql语句。
+
+二 安装|卸载
+
+	服务端：
+		5.7的社区版。
+		
+	客户端：
+		自带客户端
+		
+	基本命令：
+		登录：
+			  mysql -u root -p 表明用root账户登录。
+			  回车输入密码，即可。
+		注销：quit 
+		启动服务：net start mysql //此处mysql是服务名。根据自己的服务名而定。
+		关闭服务：net stop mysql  //同上。
+			 
+三 快速入门
+	数据库：作为一个管理表的容器(数据结构)。可以创建多个数据库。
+			创建数据库： 
+					create database hi;
+			查看有哪些数据库： show databases; 
+			
+	表：表是存储数据库信息的具体结构。一个数据库管理多张表。
+			use helloword;//选择某个数据库。
+			create table user(
+				序号 int,
+				考生姓名 varchar(20),
+				身份证号 varchar(20)
+			)ENGINE=InnoDB DEFAULT CHARSET=gbk;
+			如果希望指定存储引擎和字符集编码。
+			c
+			表示使用InnoDB存储引擎，默认编码是GBK编码。
+			utf-8  utf8 
+			
+			查看表结构：desc user;
+			查看当前数据库有哪些创建的表： show tables;
+			删表：drop table user;
+	字段：每个表的表头信息。
+	字段类型：用来限定字段的类型。相当于数据类型。
+			mysql数据类型	
+					字符型：
+							char     固定字节长度的字符串。char(1)
+							varchar  可变字节长度的字符串。varchar(1)
+							text
+							
+					数字型：
+							int
+								 tiny int
+								 small int 
+								 mixxx int 
+								 big int 
+							float
+							double
+							
+					BLOB 大二进制 
+					
+					日期类型
+							date      年月日 
+							datetime  年月日时分秒
+							timestrap 时间戳
+	如何存储数据?				
+		登录用户、当前用户 创建数据库、在数据库下 创建表(创建设计字段)。		
+	SQL语句：针对于表的增删改查。
+		  	增加：
+					insert into 表名(字段列表) values(值列表);
+					例如： insert into user(序号,考生姓名,身份证号) values( 1,'徐帆','360981200107091017');
+					 insert into user(序号,考生姓名,身份证号) values( 2,'吴惟峻','360111198112273314');
+					 insert into user(序号,考生姓名,身份证号) values( 3,'赵志诚','360124199909204814');
+					 insert into user(序号,考生姓名,身份证号) values( 4,'宋瑞林','360733200102052738');
+					 insert into user(序号,考生姓名,身份证号) values( 62,'杨卉仪','360502199806272519');
+
+
+			查询(单表)：
+					select * from 表名; //查询全表所有字段。
+					select 字段列表 from 表名; //查询权标指定字段。
+					select 字段1 [as] 别名1,字段2 [as]别名2 ... from 表名; //查询权标指定字段。
+					select id as 编号, name as 姓名,sex 性别 from user;
+					
+			修改：
+					update 表名 set 字段1=值1,... 字段n=值n;//全表修改。
+					
+					update 表名 set 字段1=值1,... 字段n=值n 
+					where k1 = v1;
+					更改字段k1的值为v1的记录：具体是将该记录的字段1的值改为值1... 
+					update user set sex=2 where id = 123;
+					
+					
+			删除： delete from 表;//删除全表记录。
+				   delete from 表 where k1 = v1;
+						//删除 表中  字段k1的值为v1的记录。
+		
+		
+	约束条件
+		主键约束、外键约束、唯一约束。
+
+		
+四 扩展开发
+	mysql作为一款数据库，可以和其他编程语言完美对接。
+五 作业
+		投票系统的数据库设计。
+		创建数据库、创建表(要几个表、每个表有哪些字段、每个字段都是哪些类型)。

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="js/animate.css">
+	<script src="js/vue.js"></script>
+	<title></title>
+	<style>
+		#app{
+			width:600px;
+			margin: 30px auto;
+		}
+		#app p{
+			width:100px;
+			height:200px; 
+			background: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button @click="show=!show">拖放</button>
+		<transition v-on:before-enter="selfD" v-on:enter="selfDefinitionEnter " v-on:leave="selfDefinitionLeave" v-bind:css+false>
+			<p v-if=""></p>
+		</transition>
+	</div>
+	<script>
+		var app = new Vue({
+			el:"#app",
+			data:{
+				show:true
+			},
+			methods:{
+				selfD:function(element){
+					element.style.opacity = .8;
+				},
+			
+		selfD:function(element){
+			Velocity(element,{opacity:.6},{duration:500});
+		},
+		selfDeinitionEnter:function(element,done){
+			}
+		}
+		})
+	</script>
+</body>
+</html>

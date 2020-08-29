@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+	<script>
+		var arr = new Array();
+		var str = new String();
+		var num = new Number();
+		function  ShowPerson(param){
+			this.name = param;
+			this.showName = function(){
+				document.write(this.name + "<br/>");
+			}
+		};
+		var person1 = new ShowPerson("广仔");
+		var person2 = new ShowPerson("螺丝刀");
+		person2.showName();
+		person1.showName();
+	</script>
+</body>
+</html>

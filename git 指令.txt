@@ -1,0 +1,9 @@
+
+1.先 git clone xxxx.git 克隆文件下来
+2.然后git pull 
+3.在创建一个新的分支git branch name
+4.再git checkout  * 转到我自己的分支
+5.然后 git branch 可以查看分支
+6.git add . 
+7.git commit -m "*" 提交文件，*是注释
+8.最后 git push上去

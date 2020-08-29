@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script type="text/script" src="js/vue.js" charset="UTF-8">
+		<!-- <scritp type="text/scrpt" src="js/jquery2.0.js"></scritp> -->
+	</script>
+	<style>
+		h5{
+			color:darkred;
+			font-weight: 200;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<p>{{msg}}</p>
+		<input type="text" v-model="msg"/>
+		<h2 v-show="bool>10">是否显示数据</h2>
+		<!-- <p v-else>文字信息</p> -->
+		<ul>
+			<li v-for="item in arr">姓名:{{item.name}} 年龄:{{item.age}}分数:{{item.score}}</li>
+		</ul>
+		<!-- v-bind可以去除在属性值当中如果没有引号则是Vue当中的数据 -->
+		<h5 v-bind:class="newMsg>20 ?'red':'none'">文字信息</h5>
+		<button v-on:click="showInnerText">{{btn}}</button>
+		<input type="text" v-model="btn">
+	</div>
+	<div class="obj"></div>
+	<script>
+		var obj = {name:"张飒",age:20,score:80};
+		var objClass = document.querySelector(".obj");
+		var str = "";
+		for(x in obj){
+			str += x +":" + obj[x] + "<br/>";
+		}
+		document.write(str);
+		
+		var app = new Vue({
+			el:"#app",
+			data:{
+				msg:"Hello world",
+				red:"red",
+				newMsg:10,
+				btn:"按钮",
+				bool:12,
+				arr:[
+					{name:"张飒",age:20,score:80},
+					{name:"王江",age:21,score:84},
+					{name:"仔仔",age:10,score:80},
+					{name:"张飒",age:20,score:80},
+					{name:"王江",age:21,score:84},
+					{name:"仔仔",age:10,score:80},
+					{name:"张飒",age:20,score:80},
+					{name:"王江",age:21,score:84},
+					{name:"仔仔",age:10,score:80},
+				]
+			}, 
+			 methods:{
+			showtext(function{
+				alert("按钮");
+				}
+			})
+		})
+		
+	</script>
+</body>
+</html>

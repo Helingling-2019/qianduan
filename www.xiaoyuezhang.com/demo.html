@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Web前端工程师简历</title>
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/base.css" type="text/css">
+    <link rel="stylesheet" href="static/css/cv.css">
+	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="stylesheet" href="static/css/animate.css">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        });
+    </script>
+</head>
+<body>
+	
+	<div class="up-loadding">
+	    <span class="bg-fir bg-box"></span>
+	    <span class="bg-sec bg-box"></span>
+	    <div class="cent-load">
+	        <span class="line line1"></span>
+	        <span class="line line2"></span>
+	        <span class="line line3"></span>
+	        <span class="line line4"></span>
+	        <div class="cent-font">
+	            <p class="num"><span>0</span> %</p>
+	            <p class="tit">loading</p>
+	        </div>
+	    </div>
+	</div>
+	<audio src="static/audio/1.mp3"  loop  id="bgmusic"></audio>
+	<!-- <script>
+	setTimeout(function(){
+	  document.getElementById('bgmusic');
+	},6000);
+	</script> -->
+	<script>
+		var bgmusic = document.getElementById('bgmusic');
+		
+		window.addEventListener('load', function(){	
+			bgmusic.addEventListener('canplay', function(){
+				setTimeout(function(){
+				  document.getElementById('bgmusic').play();
+				},4000);
+				/* this.play(); */
+				}, false);
+			window.addEventListener('touchstart', once, false);
+			}, false);function once(){
+			bgmusic.play();	
+			window.removeEventListener('touchstart', once, false);
+			}
+	</script>
+	
+    <a class="forkme" style="position: fixed;z-index:9999;top:0;right: 0" href="https://github.com/redspitee"><img width="149" height="149" src="static/picture/forkme_right.png" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    <div class="content ">
+        <div class="cv-container">
+            <div id="section1" class="section active">
+                <div id="top" title="顶部">
+                    <img src="static/picture/top.png" alt="回到顶部">
+                </div>
+                <div class="myIntro">
+                    <h1 class="fade">Hello, I'm RedSpite</h1>
+                    <h3 class="fade">一个拥有像素眼的前端工程师</h3>
+                    <span class="active fade" id="abMe">关于我</span>
+                    <span id="mypro" class="fade">我的作品</span>
+                </div>
+                <ul class="bg-img">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+
+            <div id="section2" class="section">
+                <!-- 导航条-->
+                <div id="nav-bar" class="bar">
+                    <div class="container">
+                        <!-- <a href="https://www.redspite.com">
+                            <div class="fl">RedSpite博客</div>
+                        </a> -->
+                        <ul class="fr nav-ul">
+                            <li>关于我</li>
+                            <li>求职意向</li>
+                            <li>作品集</li>
+                            <li>技术掌握</li>
+                            <li>我的经历</li>
+                            <li>联系我</li>
+                        </ul>
+                        <div class="fr more-nav">
+                            <img src="static/picture/more.png" alt="更多">
+                        </div>
+                    </div>
+                    <ul class="nav-ul nav-xs-ul">
+                        <li>关于我</li>
+                        <li>求职意向</li>
+                        <li>作品集</li>
+                        <li>技术掌握</li>
+                        <li>我的经历</li>
+                        <li>联系我</li>
+                    </ul>
+                </div>
+
+                <!--关于我-->
+                <h2>关于我</h2>
+                <hr>
+                <div class="center fades">
+					<div class="wrap">
+									<div class="ch-item ch-img-1">
+											<div class="ch-info">
+												<h3>Thank you for watchy</h3>
+												<p>by Angela Duncan <a href="http://drbl.in/eOPF">View on Dribbble</a></p>
+											</div>
+										</div>
+					</div>
+                    <!-- <p class="center"><img src="static/picture/1.jpg" alt="头像" /></p> -->
+                    <div class="my-intro">
+						
+                        <p>我叫何玲玲，19岁，坐标海口，是一名前端工程师。前端是一门有容乃大的行业，作为计算机专业出生，有幸接触过Java后端开发深入学习。庆幸的是JS和java很相像，给我很大的信心来学习。
+                        </p>
+						<p>性格踏实稳重，善于人际交流和沟通，具备团队合作精神，较强的适应能力和动手能力。勤奋上进好学，条理清晰，踏实肯干，有很强的责任心。
+</p>
+                        <!-- <p>很多初学者朋友可能会搜索到我的简历，这是<a href="https://github.com/Redspitee/Cv" target="_blank">项目源码</a>，如果有帮到你 希望给个star~</p> -->
+                    </div>
+				</div>
+            </div>
+            <div id="section3" class="section">
+                <h2>求职意向</h2>
+                <hr>
+                <div class="container center fades">
+                    <div class="col-md-3 col-xs-6 skill-ps skill">
+                        <p><img src="static/picture/web.png" alt="切图"></p>
+                        <p class="ptitle">PS切图</p>
+                        <p>从PSD上切出页面需要的图片</p>
+                        <p>将小图标合成spirts优化。</p>
+                    </div>
+                    <div class="col-md-3 col-xs-6 skill-web skill">
+                        <p><img src="static/picture/css.png" alt="css"></p>
+                        <p class="ptitle">网页制作</p>
+                        <p>响应式页面,简单不冗余代码。</p>
+                        <p>css3流畅动画效果，兼容不同浏览器。</p>
+                    </div>
+                    <div class="col-md-3 col-xs-6 skill-js skill">
+                        <p><img src="static/picture/js.png" alt="js"></p>
+                        <p class="ptitle">前端功能</p>
+                        <p>用JS完成常见的前端功能特效</p>
+                        <p>用AJAX读取后台数据。</p>
+                    </div>
+                    <div class="col-md-3 col-xs-6 skill-h5 skill">
+                        <p><img src="static/picture/h5.png" alt="h5"></p>
+                        <p class="ptitle">h5页面</p>
+                        <p>移动端页面的书写</p>
+                        <p>兼容平板、安卓、IOS不同终端。</p>
+                    </div>
+                </div>
+            </div>
+            <div id="section4" class="section">
+                <h2>作品集</h2>
+                <hr>
+                <div class="container center fades">
+                    <p class="center intros">写jq前端功能的时候，我的宗旨是能手写就手写，不依赖插件。手写代码更简洁高效，也更能提升自己技术。</p>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="imgbox">
+                            <img src="static/picture/01.jpg" alt="作品配图">
+                        </div>
+                        <a href="cart.html" target="_blank">
+                            <div class="zp-cover">
+                                <h4>商城类页面</h4>
+                                <p>购物车结算jq，订单的选择或删除、金额的计算。</p>
+                                <img src="static/picture/search.png" alt="查看">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="imgbox">
+                            <img src="static/picture/06.jpg" alt="作品配图">
+                        </div>
+                        <a href="" target="_blank">
+                            <div class="zp-cover" style="top: 45%">
+                                <h4>测试类页面</h4>
+                                <p>AJAX获取后台数据，用数组读取选项与题目。记录测试者的选项返给后台。</p>
+                                <img src="static/picture/search.png" alt="查看">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-xs-6 ">
+                        <div class="imgbox">
+                            <img src="static/picture/02.jpg" alt="作品配图">
+                        </div>
+                        <a href="" target="_blank">
+                            <div class="zp-cover">
+                                <h4>直播类页面</h4>
+                                <p>直播页面响应式，css3 jq运用较多</p>
+                                <img src="static/picture/search.png" alt="查看">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-xs-6 ">
+                        <div class="imgbox">
+                            <img src="static/picture/03.jpg" alt="作品配图">
+                        </div>
+                        <a href="" target="_blank">
+                            <div class="zp-cover">
+                                <h4>列表类页面</h4>
+                                <p>无缝轮播手写，花瓣动画。</p>
+                                <img src="static/picture/search.png" alt="查看">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-xs-6 ">
+                        <div class="imgbox">
+                            <img src="static/picture/04.jpg" alt="作品配图">
+                        </div>
+                        <a href="" target="_blank">
+                            <div class="zp-cover">
+                                <h4>详情类页面</h4>
+                                <p>视频播放，富文本编辑器手写。</p>
+                                <img src="static/picture/search.png" alt="查看">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 col-xs-6 ">
+                        <div class="imgbox">
+                            <img src="static/picture/05.jpg" alt="作品配图">
+                        </div>
+                        <a href="" target="_blank">
+                            <div class="zp-cover">
+                                <h4>官网类首页</h4>
+                                <p>多数据响应式网页，能兼容不同大小电脑分辨率</p>
+                                <img src="static/picture/search.png" alt="查看">
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-3 col-xs-6 ">
+                        <div class="imgbox">
+                            <img src="static/picture/07.jpg" alt="作品配图">
+                        </div>
+                        <a href="" target="_blank">
+                            <div class="zp-cover">
+                                <h4>移动端页面</h4>
+                                <p>列表页，兼容安卓、ios、平板</p>
+                                <img src="static/picture/search.png" alt="查看">
+                            </div>
+                        </a>
+                    </div>
+                   <!-- <div class="col-md-3 col-xs-6">
+                        <div class="imgbox">
+                            <img src="static/picture/08.jpg" alt="作品配图">
+                        </div>
+                        <a href="drip.html" target="_blank">
+                            <div class="zp-cover">
+                                <h4>我的技术博客</h4>
+                                <p>自己平时的知识点积累~</p>
+                                <img src="static/picture/search.png" alt="查看">
+                            </div>
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+            <div id="section5" class="section">
+                <h2>技术掌握</h2>
+                <hr>
+                <div class="container center fades">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="wrap-box">
+                            <div class="circle-wrap clip-auto">
+                                <div class="left-clip percent"></div>
+                                <div class="right-clip percent"></div>
+                            </div>
+                            <div class="circle-num">
+                                <span>90</span>%
+                            </div>
+                        </div>
+                        <p class="ptitle">HTML5</p>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="wrap-box">
+                            <div class="circle-wrap clip-auto">
+                                <div class="left-clip percent"></div>
+                                <div class="right-clip percent"></div>
+                            </div>
+                            <div class="circle-num">
+                                <span>90</span>%
+                            </div>
+                        </div>
+                        <p class="ptitle">CSS3</p>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="wrap-box">
+                            <div class="circle-wrap clip-auto">
+                                <div class="left-clip percent"></div>
+                                <div class="right-clip percent"></div>
+                            </div>
+                            <div class="circle-num">
+                                <span>85</span>%
+                            </div>
+                        </div>
+                        <p class="ptitle">JQ</p>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <div class="wrap-box">
+                            <div class="circle-wrap clip-auto">
+                                <div class="left-clip percent"></div>
+                                <div class="right-clip percent"></div>
+                            </div>
+                            <div class="circle-num">
+                                <span>80</span>%
+                            </div>
+                        </div>
+                        <p class="ptitle">JS</p>
+                    </div>
+                </div>
+            </div>
+            <div id="section6" class="section">
+                <h2>我的经历</h2>
+                <hr>
+                <div class="container center fades">
+                    <ul class="my-xp">
+                        <li>
+                            <div class="date-box">
+                                <p>09/2015</p>
+                                <p>-</p>
+                                <p>现在</p>
+                            </div>
+                            <div class="my-work my-xp-box">
+                                <strong>成都清风竞技文化传媒</strong>
+                                <p class="ptitle">技术部/前端工程师</p>
+                                <p>负责官网页面制作。PSD切图后构建页面框架</p>
+                                <p>利用JS、CSS3书写前端功能，让页面更充实丰富</p>
+                                <p>并将代码上传到代码托管平台上</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="date-box">
+                                <p>06/2016</p>
+                                <p>-</p>
+                                <p>09/2012</p>
+                            </div>
+                            <div class="my-school my-xp-box">
+                                <strong>江西枫林涉外经贸职业学院</strong>
+                                <p class="ptitle">大学专科</p>
+                                <p>获得大学英语四级证书</p>
+                                <p>获得C语言计算机二级</p>
+                                <p></p>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+           	
+		   <div id="section7" class="section">
+			   <div class="box-img"> </div>
+		       <h2>联系我</h2>
+		       <hr>
+		  	<div class="phone-box">
+		   	    <div class="phone"></div>
+		   	    <div class="phone-textbox">
+		   	        <div style="display: table"></div>
+		   	        <div class="phone-textbox1">
+		   	            <i class="float-left dh"></i>
+		   	            <p class="p1">联系电话: <span class="heibu"></span></p>
+		   	            <p class="p2">18389505643<span class="heibu"></span></p>
+		   	        </div>
+		   	        <div class="phone-textbox2">
+		   	            <i class="float-left yx"></i>
+		   	            <p class="p1">邮箱:<span class="heibu"></span></p>
+		   	            <p class="p2">709852671@qq.com<span class="heibu"></span></p>
+		   	        </div>
+		   	        <div class="phone-textbox3">
+		   	            <i class="float-left dz"></i>
+		   	            <p class="p1">家庭地址:<span class="heibu"></span></p>
+		   	            <p class="p2">海南省屯昌县新兴镇新雄小学<span class="heibu"></span></p>
+		   	        </div>
+		   	    </div>
+		   	</div>
+		   </div>
+		   
+				<!-- <div class="bot-img">
+					<img src="static/images/2.png" alt="">
+				</div> -->
+                <!-- <div class="container center fades">
+                    <div class="flow">
+                       <img src="static/images/2.png" alt="">
+                        <div id="uyan_frame"></div>
+                        <script type="text/javascript" src="static/js/uyan.js"></script>
+                        <div class="half fr">
+                        </div>
+						
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <p class="center beian">© RedSpite | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">蜀ICP备16004270号</a></p> -->
+
+   
+  <!-- <script>
+         window.location.href="https://www.redspite.com/cv"
+    </script> -->
+    <script src="static/js/jquery.min.js"></script>
+	<script src="static/js/zslsy.js"></script>
+	<script src="static/js/jquery.easing.1.3.js"></script>
+    <script src="static/js/mycv.js"></script>
+	<script type="text/javascript" src="static/js/text.js"></script>
+	<script type="text/javascript" src="static/js/snowstorm.js"></script>
+    <script>
+        (function() {
+            //百度自动链接推送
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+               /* bp.src = ' https://zz.bdstatic.com/linksubmit/push.js '; */
+            } else {
+               /* bp.src = 'http://push.zhanzhang.baidu.com/push.js'; */
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+</body>
+
+</html>

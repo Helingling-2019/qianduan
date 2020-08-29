@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script type="text/javascript" src="js/jquery2.0.js"></script>
+</head>
+<body>
+	<div class="list">
+		<ul>
+			
+		</ul>
+	</div>
+	<script>
+		var $list = $(".list");
+		var $listChild = $list.children(".list-child").find(":checkbox");
+		var $listElement = $list.children("ul").find(":chexkbox");
+		var $length = $listLiElement.size();
+		$listChild.on("click",function(){
+			if($(this).is(":checked")){
+				$listLiElement.prop("checked",true);
+			}else{
+				$listLiElement.prop("checked",false);
+			}
+		});
+		$listLiElement.on("click",function(){
+			var $checkedLeng  = $list.children("ul").find(":checkbox").filter(":checked").length;
+			if($checkedLeng == $length){
+				$listChild.prop("checked",true);
+			}else{
+				$listChild.prop("checked",false);
+			};
+		})
+	</script>
+</body>
+</html>

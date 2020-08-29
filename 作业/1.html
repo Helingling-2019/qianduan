@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<!-- <div id="app">
+		{{msg}}
+		<p v-html="content"></p>
+	</div>
+	
+	<script>
+		var data = "<div><ul></ul></div>";
+		var app = new Vue({
+			el:"#app",
+			data:{
+				msg:"信息",
+				content:data
+			},
+			created:{
+				message:"另外一个信息"
+			},
+		})
+	</script> -->
+	<div id="app">
+		<definition></definition>
+		<sin></sin>
+		<cos></cos>
+	</div>
+	<div id="box"></div>
+	<script>
+		Vue.component("definition",{
+			template:"<div class='new'><h2>文字信息</h2></div>"
+		})
+		var app = new Vue({
+			el:"#app",
+			components:{
+				sin:{
+					template:"<div class='new'><h2>信息</h2></div>"
+				},
+				cos:{
+					template:"<p>新兴</p>"
+				}
+			}
+		})
+		var box = new Vue({
+			el:"#box",
+		})
+	</script>
+	<div id="nav">
+		<newcom :third="msg" selfdefinition="how are you" second="Soulmate"></newcom>
+		
+	</div>
+	<script>
+		var nav = new Vue({
+			el:"#nav",
+			data:{
+				msg:"新兴"
+			},
+			components:{
+				newcom:{
+					template:"<div><h2>{{selfdefinition}}</h2><button @click='showAge'>按钮</button><p>{{second}}</P><span>{{third}}</span><h5 id='xuanran'></h5></div>",
+					props:['selfdefinition','second','third'],
+					data:function(){
+						return {num:1}
+					},
+					created:function(){
+						this.num = "字符串";
+					},
+					mounted:function(){
+						document.getElementById("xuanran").innerHTML = this.num;
+					},
+					methods:{
+						showAge:function(){
+							this.num++;
+						}
+					}
+				}
+			}
+		})
+	</script>
+	<div id="all">
+		<button @click="showAge">按钮</button>
+		{{num}}
+	</div>
+	<script>
+		var all = new Vue({
+			el:"#all",
+			data:{
+				num:1
+			},
+			methods:function(){
+				
+			}
+		})
+	</script>
+</body>
+</html>

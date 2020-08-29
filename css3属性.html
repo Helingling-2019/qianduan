@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+	<!-- box-sizing盒子尺寸
+	    content-box / border-box
+	 -->
+	 <style>
+		 /* box-sizing:border-box 元素的总宽度包含填充和边框 */
+		 .box2{ width:100px; height:100px; background:#f40; margin:30px; text-align: center; line-height:100px; color:#fff; font-size:20px; padding:20px; border:10px solid gold;}
+		 .box3{ width:100px; height:100px; background:#e1251b; margin:30px; text-align: center; line-height:100px; color:#fff; font-size:20px; padding:20px; border:10px solid gold; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+		 .inp{ width:120px; height:42px; padding:5px 10px; border:5px solid #f40; border-radius:6px;}
+		 .btn{ width:120px; height:42px; padding:10px; border:10px solid red; color:#fff; background:gray;}
+		 
+	 </style>
+	 <input type="text" class="inp" /> <!-- css2盒模型 -->
+	 <input type="button" value="按钮" class="btn" /> <!-- css3盒模型 -->
+	<div class="box2">
+		box2盒模型
+	</div>
+	<div class="box3">
+		box3盒模型
+	</div>
+	<div class="box-1"></div>
+</body>
+</html>

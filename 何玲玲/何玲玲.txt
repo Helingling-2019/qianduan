@@ -1,0 +1,51 @@
+何玲玲-8.31
+1.velocity.js使用方式：
+答：结合Vue.js使用方法有Velocity(“DOM选取元素”, {css属性集合},{完成动画所用的一些参数：延迟/持续事件/动画曲线})
+2,vue基础指令代表含义：
+答：v-bind:标签属性={表达式}
+v-on:事件名称={函数},
+v-if,
+v-show
+,v-for
+3,animate动画
+animate-duration,
+4.velocity和wow使用方式
+通过脚本写入wow和velocity
+5.键盘事件当中中文输入前触发事件和触发之后的事件
+onchange,onkeyUp
+6.vue动画使用方式
+transition:
+属性
+ v-on:before-enter
+  v-on:enter
+  v-on:after-enter
+  v-on:enter-cancelled
+ 
+  v-on:before-leave
+  v-on:leave
+  v-on:after-leave
+  v-on:leave-cancelled
+
+ v-enter过渡开始状态，v-enter-active过渡生效
+.fade-enter-active,fade.leave-active
+vue如何velocity一起使用动画效果
+7，vue组件使用方式在脚本中创建对象
+vue组件两种方式：created,mounted
+8，vue参数有哪些？component object fistName lastName
+9.在事例中有哪些方法是判断的
+if,
+jquery过滤使用什么方式
+translate (x, y)
+rotate (deg)
+rotateX (deg)
+rotateY (deg)
+rotate3d (x, y, z, deg)
+scale (x, [y])
+perspective (px)
+skewX (deg)
+skewY (deg)
+10，vue当中ajax请求方式
+11,vue单页面和多页面使用
+通过li元素相互调用
+12，ps操作快捷键
+ctrl+j复制 ctrl + E 合并图层  ctrl+ v粘贴  Ctrl+N新建图层 Ctrl+X剪切 Ctrl+滚轮  放大缩小 shift+s保存jpg图片 shift+Ctrl+alt+s选择png-24保存png图片 ctrl + a 画布 alt+滚轮 平面图缩放

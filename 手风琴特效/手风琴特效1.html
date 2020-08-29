@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+<style>
+	*{ margin:0; padding:0;}
+	ul,li{ list-style: none;}
+	a{ text-decoration:none; color:#fff; font-size:14px;}
+	body{ font-family: '微软雅黑';}
+	.sideBar{ position:fixed; left:0; top:0; width:230px; background:#111; height:100%; overflow-y:auto;}
+	.sideBar > ul > li{ border-bottom: 1px solid #716D6D;}
+	.sideBar > ul > li a{ display: block; text-indent: 20px; font-size:16px; line-height:42px; position:relative;}
+	.hasSelect::after{ content: ''; width:0; height:0; border:8px solid transparent; border-top-color:#fff; position:absolute; right:10px; top:50%; margin-top:-3px;  transition:transform .4s ease; transform-origin:5px 5px;}
+	.sideBar > ul ul .hasSelect::after{ right:60px; border-top-color:red;}
+    .rotate::after{ transform:rotate(-90deg);}
+	.sideBar > ul > li ul{ display: none;}
+	.sideBar > ul ul li > a{ margin-left:20px; border-top:1px solid #716D6D;}
+	.sideBar-child{ display: none;}
+	.sideBar-child a{ margin-left:40px; border-top:1px solid #716D6D;}
+</style>
+	<div class="sideBar">
+		 <ul>
+		 	<li><a href="https://www.baidu.com" target="_blank">首页</a></li>
+			<li>
+			<a href="https://www.baidu.com">一级菜单</a>
+			  <ul>
+			  	<li><a href="#">二级菜单</a>
+				     <div class="sideBar-child">
+						 <a href="#">三级导航</a>
+						 <a href="#">三级导航</a>
+						 <a href="#">三级导航</a>
+					 </div>
+				</li>
+				<li><a href="https://www.baidu.com" target="_blank">二级菜单</a>
+				</li>
+				<li><a href="#">二级菜单</a>
+				    <div class="sideBar-child">
+				    	 <a href="#">三级导航</a>
+				    	 <a href="#">三级导航</a>
+				    	 <a href="#">三级导航</a>
+						 <a href="#">三级导航</a>
+						 <a href="#">三级导航</a>
+				    </div>
+				</li>
+				<li><a href="#">二级菜单</a>
+				    <div class="sideBar-child">
+				    	 <a href="#">三级导航</a>
+				    	 <a href="#">三级导航</a>
+				    </div>				
+				</li>
+			  </ul>
+			</li>
+		    <li>
+		    <a href="">一级菜单</a>
+		      <ul>
+		      	<li><a href="#">二级菜单</a>
+		    	     <div class="sideBar-child">
+		    			 <a href="#">三级导航</a>
+		    			 <a href="#">三级导航</a>
+		    			 <a href="#">三级导航</a>
+		    		 </div>
+		    	</li>
+		    	<li><a href="#">二级菜单</a>
+		    	    <div class="sideBar-child">
+		    	    	 <a href="#">三级导航</a>
+		    	    	 <a href="#">三级导航</a>
+		    	    	 <a href="#">三级导航</a>
+		    			 <a href="#">三级导航</a>
+		    			 <a href="#">三级导航</a>
+		    	    </div>
+		    	</li>
+		    	<li><a href="#">二级菜单</a>
+		    	    <div class="sideBar-child">
+		    	    	 <a href="#">三级导航</a>
+		    	    	 <a href="#">三级导航</a>
+		    	    </div>				
+		    	</li>
+		      </ul>
+		    </li>
+		    
+		 </ul>
+	</div>
+	<script>
+		var $sideBarLi = $(".sideBar > ul > li");
+		var $sideBarLiChild = $(".sideBar ul ul > li");
+		$sideBarLi.each(function(){
+			if($(this).children().is("ul")){
+				$(this).children("a").attr("href","javascript:void(0)");
+				$(this).children("a").addClass("hasSelect");
+			}
+		});
+		
+		 $sideBarLiChild.each(function(){
+			if($(this).children().is(".sideBar-child")){
+				$(this).children("a").attr("href","javascript:void(0)");
+				$(this).children("a").addClass("hasSelect");
+			}
+		});
+		$sideBarLi.children("a").on("click",function(){
+			$(this).toggleClass("rotate");
+			$(this).siblings("ul").slideToggle().parent().siblings().children("ul").slideUp().siblings("a").removeClass("rotate");
+		});
+		$sideBarLiChild.children("a").on("click",function(){
+			$(this).toggleClass("rotate");
+			$(this).siblings(".sideBar-child").slideToggle().parent().siblings().children(".sideBar-child").slideUp().siblings("a").removeClass("rotate");
+		})
+	</script>
+</body>
+</html>

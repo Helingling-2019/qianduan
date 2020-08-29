@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<HTML>
+<head>
+	
+	 <meta charset="UTF-8" />
+	 <style>
+	    table{
+			margin:0 auto;
+			width:200px;
+			border:1px solid black;
+		}
+		table button{
+			width:100%;
+			height:40px;
+		}
+		table td{
+			width:25%;
+		}
+		table td .selectbtn{
+		   background:blue;
+		   color:white;
+		}
+	 </style>
+	<script type="text/javascript" src="./jquery2.0.js" ></script>
+	<script type="text/javascript" src="db.js"></script>
+</head>
+<body >
+   
+   <div align="center">成语消消乐</div>
+   <div align="center">
+	当前第<font color="green" id="current_level_text">1</font>关&nbsp;
+    得分<font id="gain_scores_txt" color="green">0</font>分&nbsp;
+	思考<font id="think_time" color="red">0</font>s&nbsp;
+	总耗时<font id="total_times" color="blue">0</font>s&nbsp;
+   </div>
+   <table  border='0' cellpadding='0' cellspacing='0'>
+	 <tbody id="mytbody">
+	 </tbody>
+   </table>
+   
+<script>
+	$(document).ready(function(){
+		//定时1s执行一次。
+		setInterval(function(){
+			//思考时间
+			$("#think_time").text(parseInt((Date.now()-game.last_time)/1000));
+			//总时间
+			$("#total_times").text(parseInt($("#total_times").text())+1);
+			
+		},1000);
+	
+		var game={
+			dbs:list,//从外部js中加载。
+			chooseData:[],//记录从数据库从取出的成语。
+			recordChooseText:"",//记录用户选择的文字。
+			recordChooseBtn:[],//记录用户选择的按钮的jq对象。
+			current_index:0,//当前关数。 不可调。
+			every_words:6,//每一关的成语个数。可调。
+			every_right_num:0,//当前关答对的成语个数。 不可调。
+			current_words:0,//当前关的成语个数。 ，不可调。
+			last_time:Date.now(),//最后一次答题时间。
+			gain_scores:0,//得分。不可调。
+			every_scores:5,//每题得分。可调。
+			luanxu:function(){
+				var dbtxt = "";
+					var start =  game.current_index*game.every_words;
+					var end = start + game.every_words  <= list.length ? start + game.every_words : list.length; 
+					game.current_words = end - start;
+					if( game.current_words <=0 ){
+					   end = 0;
+					   game.current_words = 0;
+					}
+					for(var i=start;i<end;i++){
+						dbtxt +=list[i];
+						this.chooseData.push(list[i]);
+					}
+					var luanxu=[];
+					while(dbtxt.length>0){
+						var index = parseInt(Math.random()*dbtxt.length);
+						luanxu.push(dbtxt.charAt(index));
+						dbtxt = dbtxt.substring(0,index)+dbtxt.substring(index+1,dbtxt.length);
+					}	
+				return luanxu;
+			},
+			createTable:function(words){
+				var len = 0;
+				var tbody = $("#mytbody");
+				tbody.empty();//清空tbody。
+				for(var i=0;i<game.current_words; i++){
+					var tr = $("<tr></tr>");
+					for(var j=0;j<4;j++){
+						var td = $("<td></td>");
+						td.append("<button type='button'>"+words[len++]+"</button>");
+						tr.append(td);
+					}
+					tbody.append(tr);
+				}
+			},
+			removeBtn:function(){
+				for(var i=0;i<game.recordChooseBtn.length;i++){
+					game.recordChooseBtn[i].remove();
+				}
+			},
+			//下一关。
+			nextLevel:function(){
+			   //答对成语个数和当前关的成语个数相等。则下一关。
+			   if(game.every_right_num == game.current_words){
+				   game.current_index ++;
+			       alert("恭喜您进入第"+ game.current_index +"关");
+				  //清空当前答对成语个数。
+					game.every_right_num = 0;
+				  //下一关。
+				  
+				   //1重新初始化表格。
+				   game.init();
+				   $("#current_level_text").text(game.current_index+1);
+				   //判断终极结束。
+				   if(game.current_words <= 0){
+					  alert("您已经是这个宇宙最厉害的人了。");
+					  //重新加载网页。
+					  window.location.reload();
+				   }
+				   
+			   }
+			
+			},
+			//检测得分。
+			check:function(){
+				//如果点击的按钮个数少于4。直接退出函数。
+				if(game.recordChooseBtn.length <4)return;
+				//判断选择的成语，是否能够组成一个四字成语。
+				var find = false;//是否匹配标志位。
+				for(var i=0;i<game.chooseData.length;i++){
+					if(game.recordChooseText == game.chooseData[i]){
+						find = true;
+						break;
+					}
+				}
+				//如果能匹配上。
+				if(find){
+					//答对成语个数 ++。
+					game.every_right_num ++;
+				   //界面中消去成语。
+				   game.removeBtn();
+				   //判断是否需要跳转下一关。
+				   game.nextLevel();
+				   //更新答题时间。
+				   game.last_time = Date.now();
+				   
+				   //更新得分。
+				   game.gain_scores += game.every_scores;
+				   $("#gain_scores_txt").text(game.gain_scores);
+				} 
+				//还原按钮样式。
+				 $(".selectbtn").removeClass();
+				 //清空按钮数组。
+				 game.recordChooseBtn=[];
+				 //清空选中的成语字符串
+				 game.recordChooseText = "";
+			},
+			init:function(){
+				//准备乱序成语。
+				var dbs = this.luanxu();
+				//准备好界面。
+				this.createTable(dbs);
+			},
+			bindEvent:function(){
+				//对tbody进行点击事件的绑定。利用事件的冒泡。
+				//当点击子元素时，tbody事件函数能够进行响应。
+			   $("#mytbody").click(function(e){
+			       var btn = e.target;//dom对象。
+				  
+				   if(btn.getAttribute("type") =="button"){
+				       game.recordChooseText += btn.innerText;
+					   game.recordChooseBtn.push($(btn));
+					   //添加一个class属性，控制选中样式。
+					   $(btn).attr("class","selectbtn");
+					   //检测得分。
+					   game.check();
+				   }
+			   });
+			}
+		};
+		
+		game.init();
+		game.bindEvent();
+	});
+</script>
+</body>
+</HTML>

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul,li{list-style: none;}
+        img{
+            border:none;
+            outline:none;
+        }
+        .container{
+            width:300px;
+            height:153px;
+            margin:30px;
+            position: relative;
+        }
+        .container-1{
+            width:360px;
+            height:360px;
+            border:1px solid #eee;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .container-1 span{
+            position: absolute;
+            left:0; top:0;
+            background:rgba(246,239,1,.6);
+            cursor: move;
+            display: none;
+            width:50px;
+            height:50px;
+        }
+        .container-1 img{
+            width:360px;
+            height:360px;
+            display: block;
+        }
+        .container-2{
+            overflow: hidden;
+        }
+        .container-2 ul li{
+            width:75px;
+            height:75px;
+            border:2px solid #999;
+            cursor: pointer;
+            margin:0 20px 0 0;
+            float: left;
+        }
+        .container-2 ul .on{
+            border-color:red;
+        }
+        .container-2 ul li img{
+            display: block;
+            width:75px;
+            height:75px;
+        }
+        .container-3{
+            position: absolute;
+            display: none;
+            left:360px;
+            top:0;
+            border:1px solid #eee;
+            width:360px;
+            height:360px;
+            overflow: hidden;
+        }
+        .container-3 img{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div style="height:2000px;">
+    <div class="container">
+        <div class="container-1">
+            <img src="2.jpg" alt=""/>
+            <span data-role="蒙板"></span>
+        </div>
+        <div class="container-2">
+            <ul>
+                <li class="on"><img src="2.jpg" alt=""> </li>
+            </ul>
+        </div>
+        <div class="container-3">
+            <img src="2.jpg" alt="">
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript">
+        function $(param){
+            if(arguments[1] == true){
+                return document.querySelectorAll(param);
+            }else{
+                return document.querySelector(param);
+            }
+        }
+        window.onload = function(){
+            var $container = $(".container");
+            var $container1 = $(".container-1");
+            var $container2 = $(".container-2 ul li",true);
+            var $container3 = $(".container-3");
+            for(var i =0;i<$container2.length;i++){
+                $container2[i].onmouseover = function(){
+                    for(var j=0;j<$container2.length;j++){
+                        $container2[j].className = " ";
+                    }
+                    this.className = "on";
+                    $container1.children[0].src = this.children[0].src;
+                    $container3.children[0].src = this .children[0].src;
+                }
+            }
+            //创建倍数
+            var beishu;
+            $container1.onmouseover = function(e){
+                $container1.children[1].style.display = "block";
+                $container3.style.display = "block";
+                beishu = ($container3.offsetWidth-2)/$container1.children[1].offsetWidth;
+                var $containerWidth = $container1.offsetWidth -2;
+                var $containerHeight = $container1.offsetHeight -2;
+                $container3.children[0].style.width = $containerWidth*beishu + "px";
+                $container3.children[0].style.height = $containerHeight*beishu + "px";
+
+                var e = e || window.event;
+                    var clientX = e.clientX;
+                    var offsetX = $container.offsetLeft;
+                var widthBan = $container1.children[1].offsetWidth/2;
+                    var left = clientX - offsetX - widthBan -1;
+                    var rightLin = $container1.offsetWidth -2 - widthBan*2;
+                    if(left <0){
+                        left = 0;
+                    }
+                        if(left > rightLin){
+                        left = rightLin;
+                        }
+                        $container1.children[1].style.top = top + "px";
+                    $container1.children[1].style.left = left + "px";
+                    $container3.children[0].style.marginLeft = -left * beishu + "px";
+                    $container3.children[0].style.marginTop = -top*beishu + "px";
+            };
+            $container1.onmounseout = function(){
+                $container1.children[1].style.display = "none";
+                $container3.style.display = "none";
+            };
+            $container1.onmousemove = function(e){
+                var e = e || window.event;
+                var clientX = e.clientX;
+                var offsetX = $container.offsetLeft;
+             var widthBan = $container1.children[1].offsetWidth/2;
+                var left = clientX - offsetX - widthBan -1;
+                var rightLin = $container1.offsetWidth -2 - widthBan *2;
+                if(left < 0){
+                    left = 0;
+                }
+                if(left > rightLin){
+                    left = rightLin;
+                }
+                var clientY = e.clientY;
+                var offsetY = $container.offsetTop;
+                var heightBan = $container1.children[1].offsetHeight/2;
+                console.log(document.documentElement.scrollTop);
+                var top = clientY -(offsetY - document.documentElement.scrollTop) - heightBan -1;
+                var topLin = $container1.offetHeight -2 - heightBan*2;
+                if(top<0){
+                    top = 0;
+                }
+                if(top > topLin){
+                    top = topLin;
+                }
+                $container1.children[1].style.top = top + "px";
+                $container1.children[1].style.left = left + "px";
+                $container3.children[0].style.marginLeft = -left*beishu + "px";
+                $container3.children[0].style.marginTop = -top*beishu + "px";
+            }
+        }
+    </script>
+</body>
+</html>

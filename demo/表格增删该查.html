@@ -1,0 +1,299 @@
+ <!DOCTYPE HTML>
+<html>
+<head>
+
+</head>
+<body onload="init()">
+	
+	<form>
+		编号：<input type="text" placeholder="编号" id="num_input" />
+		姓名：<input type="text" placeholder="姓名" id="name_input"/>
+		年龄：<input placeholder="年龄" id="age_input"/>
+		班级：<input placeholder="班级" id="classinfo_input" />
+		性别：<input type="radio" name="sex" checked="checked" value="1"/>男
+			  <input type="radio" name="sex" value="2"  />女
+			  <button type="reset">重置</button>
+	</form>
+	<div>
+		<button id="insertBtn">添加</button>
+		<button id="searchBtn">查询</button>
+		<button id="deleteBtn">删除</button>
+	</div>
+	<table border="1" width="100%" id="mytable" cellspacing="0">
+		<thead>
+			<tr>
+				<th width="40px"><input type="checkbox" class="selectAll active" /></th>
+				<th width="40px">编号</th>
+				<th width="25%">姓名</th>
+				<th width="25%">年龄</th>
+				<th width="25%">班级</th>
+				<th  >性别</th>
+			</tr>
+		</thead>
+		<tbody id="mycontent" >
+			
+		</tbody>
+	</table>
+	 
+	<script>
+	//页面加载完成事件。
+	/*window.onload=function(){}*/
+	function init(){
+	  //页面加载时，将一些初始化数据。加入tbody中。
+	  //性别 1男 2女。
+	  //表格数据。
+	  var datas=[{num:1,age:25,name:"张三",classinfo:"123",sex:1},
+				 {num:4,age:15,name:"李四",classinfo:"124",sex:1},
+				 {num:5,age:23,name:"王五",classinfo:"127",sex:2}];
+				 
+	  var tb = document.getElementById("mycontent");
+	  
+	  inittable2(datas);
+	  
+	  //为添加按钮绑定点击事件。
+	  document.getElementById("insertBtn").onclick=function(){
+		  var insertRowData = getData();
+		  insertRow(insertRowData,tb);
+		  datas.push(insertRowData);//末尾追加。
+		  
+		  //用程序去触发点击事件。相当于手动点击按钮一样具有相同的效果。
+		  var resetbtn = document.querySelector("button[type=reset]");
+		  resetbtn.click();
+	  };
+	  
+	   //为查询按钮绑定点击事件。
+	  document.getElementById("searchBtn").onclick=function(){
+		 var dataset = getData();//输入框的数据。
+		 //查找匹配的行。从datas查找。到匹配的行和不匹配的行。
+		 
+		 //还要从tbody中获取所有tr。逐个遍历。将匹配的行展示。不匹配的行隐藏。
+		 var trs = document.querySelectorAll("#mycontent tr");
+		 for(var i=0;i<datas.length;i++){
+			var flag = isDataContained(datas[i],dataset);
+			if( flag ){
+				//显示该行。
+				trs[i].style.display="";
+			}else{
+				//隐藏该行。
+				trs[i].style.display="none";
+			}
+		 } 
+	  };
+	 //简单封装
+	  function $(param){
+		  return document.querySelector(param);
+	  }
+	 
+	 
+	  //性别选择点击事件:
+	  for(var ii=0; ii<document.querySelectorAll("input[type='radio']").length;ii++){
+		  document.querySelectorAll("input[type='radio']")[ii].onclick = function(){
+			  for(var jj=0; jj<document.querySelectorAll("input[type='radio']").length;jj++){
+				  document.querySelectorAll("input[type='radio']")[jj].removeAttribute("checked");
+			  }
+			  this.setAttribute("checked",true);
+		  }
+	  }
+	  
+	  //为删除按钮绑定点击事件。
+	  document.getElementById("deleteBtn").onclick=function(){
+
+		  var tb = document.getElementById("mycontent");
+		  
+		  
+		  //匹配删除
+		  //1.先获取输入的值
+		  var $value1 = $("#num_input").value;
+		  var $value2 = $("#name_input").value;
+		  var $value3 = $("#age_input").value;
+		  var $value4 = $("#classinfo_input").value;
+		  var $value5 = $("input[type='radio'][checked]").value;
+		  
+		  var trsLength = document.querySelectorAll("#mycontent tr").length;
+		 // alert(trsLength);
+          //2.进行第一项值的匹配
+		  for(var kk=0; kk<trsLength; kk++){
+			  if(datas[kk]['num'] == $value1){
+				  //3. 进行第二项比较
+				  
+				  if(datas[kk]['name'] == $value2){
+					  //4. 进行第三项匹配
+					  if(datas[kk]['age'] == $value3){
+						   
+						   //5. 进行第四项匹配
+						   if(datas[kk]['classinfo'] == $value4){
+							   //6. 最后一项匹配
+							   if(datas[kk]['sex'] == $value5){
+								   // splice(param1,param2,param3) param1:删除的起始点 param2:删除个数 param3:插入的新成员 
+								   datas.splice(kk,1);
+								   console.log(kk + datas);
+								   $("#mycontent").removeChild(document.querySelectorAll("#mycontent tr")[kk]);
+								   break;
+							   }
+						   }
+					  }
+				  }
+			  }
+		  }
+		  
+		  
+		   //删除选中的行。
+		   //删除：① 数据部分删除。
+				 //②dom部分删除。
+		 //[tr,tr,tr,tr,tr]  //i=1  i=4
+		  for(var j=0;j<datas.length;j++){
+
+
+
+		  }
+		  var checkboxs = document.querySelectorAll("#mycontent input[type=checkbox]");
+		  var list = [];
+		  for(var i=0;i<checkboxs.length;i++)list[i]=checkboxs[i];
+		  
+		  checkboxs = list;
+		  for(var i=0;i<checkboxs.length;i++){
+			if(checkboxs[i].checked){
+				//① 数据部分删除。
+				datas.splice(i,1);// 			
+				//②dom部分删除
+				tb.removeChild( checkboxs[i].parentNode.parentNode );
+				checkboxs.splice(i,1);
+				
+			}
+			
+		  }
+		  console.info(datas);
+	  }
+ 
+	 //为表格添加点击事件。利用冒泡原理。
+	 //e 代表事件对象。事件对象有：事件源、事件类型。
+	 document.getElementById("mytable").onclick=function(e){
+		if(e.target.type =="checkbox" && e.target.nodeName=="INPUT"){
+			 var state = e.target.checked;//当前复选框的勾选状态。
+			 if( e.target.className && e.target.className.indexOf("selectAll")>-1){
+				   var checkboxs = document.querySelectorAll("#mycontent input[type=checkbox]");
+				   if(state){//全选。
+					for(var i=0;i<checkboxs.length;i++){
+						checkboxs[i].checked = true;
+					}
+				   }else{  //反选。
+					for(var i=0;i<checkboxs.length;i++){
+						checkboxs[i].checked = false;
+					}
+				   }
+			 }else{
+			   //完成。
+			   
+			 }
+		}
+	 }
+	}
+	
+	//src是否包含inputdata数据。如果包含。返回true。否则返回false。
+	//查询规则：如果所有输入框为空。则全部匹配。
+	//只要有一个不为空，该输入框作为查询条件(完全匹配，模糊匹配)
+	function isDataContained(srcData,inputdata){
+		var f1=false,f2=false,f3=false,f4=false;
+		
+		if( srcData.name.indexOf(inputdata.name)>-1 || inputdata.name==""){
+			f1 = true;
+		} 
+		
+		if( srcData.age == inputdata.age || inputdata.age=="" ){
+			f2 = true;
+		}
+		
+		if( srcData.classinfo.indexOf(inputdata.classinfo)>-1 || inputdata.classinfo==""){
+			f3 = true;
+		}
+		if( srcData.num == inputdata.num || inputdata.num==""){
+			f4 = true;
+		}
+		 
+		return f1 && f2 && f3 && f4 ;
+			
+	}
+	function getData(){
+		  //作用1：为每个input输入框提供id值。
+		   //作用2：保存所有input框的值。
+	      var rowData = {num:1,age:25,name:"张三",classinfo:"123"};
+		  
+		  for(var k in rowData){
+			 var v = document.getElementById(k+"_input").value;
+			 rowData[k]=v;
+		  };
+		  //  <input type="radio" name="sex" value="2"  />
+		  //document.querySelectorAll("input");//匹配6个。
+		  //document.querySelectorAll("input[属性]"); 
+		  //document.querySelectorAll("input[type]"); //4个
+		  var radios = document.querySelectorAll("input[type=radio]");//2个。
+		  for(var i=0;i<radios.length;i++){
+			if( radios[i].checked ){
+				rowData.sex = radios[i].value;
+				break;
+			}
+		  }
+		  return rowData;
+	}
+	
+	
+	//传入行数据。为表格添加一行。
+	function insertRow(rowData,tby){
+		var tr="<tr>";
+		tr = tr +	 "<td align=\"center\"><input type=\"checkbox\" /></td>" +
+					 "<td>"+rowData.num+"</td>"+
+					 "<td>"+rowData.name+"</td>"+
+					 "<td>"+rowData.age+"</td>"+
+					 "<td>"+rowData.classinfo+"</td>"+
+					 "<td>"+(rowData.sex ==1 ? "男":"女")+"</td>";
+		tr = tr+"</tr>";
+		tby.innerHTML += tr;
+	}
+	 
+	//初始化表格的函数。
+	function inittable(dd){
+		var tb = document.getElementById("mycontent");
+		for(var i=0;i<dd.length;i++){//{num:1,age:25,name:"张三",classinfo:"123",sex:1}
+			//创建了一个tr节点对象，相当于 <tr></tr>
+			insertRow(dd[i],tb);
+		}
+	}
+	//初始化表格的函数。
+	function inittable2(dd){
+		var tb = document.getElementById("mycontent");
+		for(var i=0;i<dd.length;i++){//{num:1,age:25,name:"张三",classinfo:"123",sex:1}
+			 insertRow2(dd[i],tb);
+		}
+	 
+	}
+	
+	function insertRow2(rowdata,tby){
+			var tr= document.createElement("tr");//<tr></tr>
+			var checkbox = document.createElement("td");//<td align="center" ></td> ==》<td><input type="chexkbox"/></td>
+			var num_td = document.createElement("td");//<td></td>
+			var name_td = document.createElement("td");//<td></td>
+			var age_td = document.createElement("td");//<td></td>
+			var classinfo_td = document.createElement("td");//<td></td>
+			var sex_td = document.createElement("td");//<td></td>
+			
+			num_td.innerHTML = rowdata.num;
+			name_td.innerHTML = rowdata.name;
+			age_td.innerHTML = rowdata.age;
+			classinfo_td.innerHTML =rowdata.classinfo;
+			sex_td.innerHTML = rowdata.sex == 1 ? "男":"女";
+			
+			checkbox.innerHTML = "<input type='checkbox'/>";
+			checkbox.align="center";
+			
+			tr.appendChild(checkbox);
+			tr.appendChild(num_td);
+			tr.appendChild(name_td);
+			tr.appendChild(age_td);
+			tr.appendChild(classinfo_td);
+			tr.appendChild(sex_td);
+			
+			tby.appendChild(tr);
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+<style>
+	*{ margin:0; padding:0;}
+	ul,li{ list-style: none;}
+	.list{ width:1200px; margin:0 auto;}
+	.list ul li{ float: left; width:350px; margin:0 25px 25px;}
+	.list ul li img{ width:350px; height: 350px;}
+</style>
+	<div class="list">
+		<ul>
+			<li><img class="lazy" src="images/loading.jpg" data-original="images/1.jpg" alt=""></li>
+			<li><img class="lazy" src="images/loading.jpg" data-original="images/2.jpg" alt=""></li>
+			<li><img class="lazy" src="images/loading.jpg" data-original="images/3.jpg" alt=""></li>
+			<li><img class="lazy" src="images/loading.jpg" data-original="images/4.jpg" alt=""></li>
+			<li><img class="lazy" src="images/loading.jpg" data-original="images/5.jpg" alt=""></li>
+			<li><img class="lazy" src="images/loading.jpg" data-original="images/6.jpg" alt=""></li>
+			<li><img class="lazy" src="images/loading.jpg" data-original="images/7.jpg" alt=""></li>
+			<li><img class="lazy" src="images/loading.jpg" data-original="images/8.jpg" alt=""></li>
+			<li><img class="lazy" src="images/loading.jpg" data-original="images/9.jpg" alt=""></li>
+			<li><img class="lazy" src="images/loading.jpg" data-original="images/10.jpg" alt=""></li>
+		</ul>
+	</div>
+	
+	<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/jquery.lazyload.js?rere=fer"></script>
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+      $("img.lazy").lazyload({effect: "fadeIn"});
+  });
+</script>
+</body>
+</html>

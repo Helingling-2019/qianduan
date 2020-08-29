@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.SuperSlide.2.1.3.js"></script>
+</head>
+<body>
+<style>
+	*{ margin:0; padding:0;}
+	ul,li{ list-style:none;}
+	.box{ width:300px; height:200px; overflow: hidden; position:relative; margin:30px auto;}
+	.box-1{ width:300px; height;200px;}
+	.box-1 ul li{ width:300px; height:200px;}
+	.box-2{ position:absolute; left:50%; bottom:20px;}
+	.box-2 ul{ overflow: hidden; margin-left:-50%;}
+	.box-2 ul li{ width:8px; height:8px; border-radius:50%; background:#fff; cursor: pointer; float: left; margin:0 6px; text-indent:100px; overflow: hidden;}
+	.box-2 ul .on{ background:red;}
+	.box-3 span{ position:absolute; top:50%; margin-top:-50px; height:100px; width:42px; background:rgba(0,0,0,.3); color:#fff; font-size:30px; font-family: '宋体'; line-height:100px; text-align: center; cursor: pointer;}
+	.prev{ left:20px;}
+	.next{ right:20px;}
+</style>
+	<div class="box">
+		<div class="box-1 bd">
+			 <ul>
+				 <li style="background-color:darkgreen"></li>
+				 <li style="background-color:lightblue"></li>
+				 <li style="background-color:lightcoral"></li>
+			 </ul>
+		</div>
+		<div class="box-2 hd">
+			<ul></ul>
+		</div>
+		<div class="box-3">
+			<span class="prev"> < </span>
+			<span class="next"> > </span>
+		</div>
+	</div>
+	<script type="text/javascript">
+		jQuery(".box").slide({
+			mainCell:".bd ul",
+			titCell:".hd ul",
+			autoPage:true,
+			effect:"leftLoop",
+			autoPlay:true
+		}); 
+	</script>
+</body>
+</html>

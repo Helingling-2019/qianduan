@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="vue.js"></script>
+	<script src="axios.min.js"></script>
+	<style>
+		*{margin: 0;padding: 0;}
+		ul li {list-style: none;}
+		.fs_inner{
+			z-index:1;
+			height:380px;
+			background: pink;
+			position: relative;
+		}
+		.grid_c1{
+			width:1200px;
+			margin: 0 auto;
+		}
+		.fs_col1{
+			width:190px;
+			height:480px;
+			float: left;
+			margin-right: 10px;
+		}
+		.box-1{
+			position: relative;
+			z-index: 3;
+		}
+		.cate_menu{
+			overflow: hidden;
+			padding: 10px 0;
+			height:450px;
+			background-color: white;
+			color: #636363;
+		}
+		.cate_menu_item{
+			height:25px;
+			line-height: 25px;
+			overflow: hidden;
+			padding-left:18px ;
+			font-size: 0px;
+			transition: background-color .2s ease;
+		}
+		.cate_menu_lk{
+			font-size: 14px;
+			color: #333;
+			transition: color .2s ease;
+		}
+		a{
+			color: #666;
+			text-decoration: none;
+		}
+		.cate_menu_line{
+			padding: 0 2px;
+			font-size: 14px;
+		}
+	</style>
+</head>
+<body>
+	<div class="grid_c1 fs_inner">
+		<div class="fs_col1">
+			<div class="box-1" id="app">
+				<ul class="cate_menu">
+					<li class="cate_menu_item" data-index="1">
+						<a  class="cate_menu_lk" href="">家用电器</a>
+					</li>
+					<li class="cate_menu_item" data-index="2">
+						<a class="cate_menu_lk" href="">手机</a>
+						<span class="cate_menu_line">/</span>
+						<a class="cate_menu_lk" href="">运营商</a>
+						<span class="cate_menu_line">/</span>
+						<a class="cate_menu_lk" class="cate_menu_lk" href="">数码</a>
+					</li>
+					<li class="cate_menu_item" data-index="3">
+						<a class="cate_menu_lk" href="">手机</a>
+						<span class="cate_menu_line">/</span>
+						<a class="cate_menu_lk" href="">运营商</a>
+						<span class="cate_menu_line">/</span>
+						<a class="cate_menu_lk" href="">数码</a>
+					</li>
+					<li class="cate_menu_item" data-index="4">
+						<a class="cate_menu_lk" href="">手机</a>
+						<span class="cate_menu_line">/</span>
+						<a class="cate_menu_lk" href="">运营商</a>
+						<span class="cate_menu_line">/</span>
+						<a class="cate_menu_lk" href="">数码</a>
+					</li>
+					<li class="cate_menu_item" data-index="5">
+						<a class="cate_menu_lk" href="">手机</a>
+						<span class="cate_menu_line">/</span>
+						<a class="cate_menu_lk" href="">运营商</a>
+						<span class="cate_menu_line">/</span>
+						<a class="cate_menu_lk" href="">数码</a>
+					</li>
+					<li class="cate_menu_item" data-index="5">
+						<a class="cate_menu_lk" href="">手机</a>
+						<span class="cate_menu_line">/</span>
+						<a class="cate_menu_lk" href="">运营商</a>
+						<span class="cate_menu_line">/</span>
+						<a class="cate_menu_lk" href="">数码</a>
+						<span class="cate_menu_line">/</span>
+						<a class="cate_menu_lk" href="">运营商</a>
+						<span class="cate_menu_line">/</span>
+						
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script>
+		var app = new Vue({
+			el:"#app",
+			methods:{
+				
+			}
+		})
+	</script>
+</body>
+</html>

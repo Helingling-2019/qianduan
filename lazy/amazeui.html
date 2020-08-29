@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<link rel="stylesheet" href="dist/css/amazeui.min.css">
+	<script src="jquery.min.js"></script>
+	<script src="dist/js/amazeui.min.js"></script>
+</head>
+<body>
+<style>
+	.changeBg{ background:orange;}
+	.am-text-ir{ background:url(i/ui/logo.png) no-repeat center center; width: 111px; height:50px; background-size:auto 50px; display: block;}
+</style>
+	<!-- am-show/hide-sm/md/lg-up/down/only -->
+	<header class="am-topbar am-topbar-inverse changeBg am-topbar-fixed-top">
+  <h1 class="am-topbar-brand">
+    <a href="#" class="am-text-ir">Amaze UI</a>
+  </h1>
+
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#doc-topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
+    <ul class="am-nav am-nav-pills am-topbar-nav">
+      <li class="am-active"><a href="#">首页</a></li>
+      <li><a href="#">项目</a></li>
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          下拉 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li class="am-dropdown-header">标题</li>
+          <li><a href="#">1. 去月球</a></li>
+          <li class="am-active"><a href="#">2. 去火星</a></li>
+          <li><a href="#">3. 还是回地球</a></li>
+          <li class="am-disabled"><a href="#">4. 下地狱</a></li>
+          <li class="am-divider"></li>
+          <li><a href="#">5. 桥头一回首</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <form class="am-topbar-form am-topbar-left am-form-inline" role="search">
+      <div class="am-form-group">
+        <input type="text" class="am-form-field am-input-sm" placeholder="搜索">
+      </div>
+    </form>
+
+    <div class="am-topbar-right">
+      <div class="am-dropdown" data-am-dropdown="{boundary: '.am-topbar'}">
+        <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm am-dropdown-toggle" data-am-dropdown-toggle>其他 <span class="am-icon-caret-down"></span></button>
+        <ul class="am-dropdown-content">
+          <li><a href="#">注册</a></li>
+          <li><a href="#">随便看看</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="am-topbar-right">
+      <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm">登录</button>
+    </div>
+  </div>
+</header>
+<style>
+	.content{ height:1200px;}
+</style>
+
+<!-- am-pagination-centered -->
+<ul class="am-pagination am-pagination-right">
+	<li class="am-disabled">
+		<a href="">&laquo;</a>
+	</li>
+	<li class="am-active">
+		<a href="">1</a>
+	</li>
+	<li>
+		<a href="">2</a>
+	</li>
+	<li>
+		<a href="">3</a>
+	</li>
+	<li>
+		<a href="">下一页</a>
+	</li>
+</ul>
+<style type="text/css">
+	@media screen and (min-width:1025px){
+	.detail{ width:1024px; margin:0 auto;}
+	}
+</style>
+<!-- am-pagination-centered -->
+<div class="detail">
+	具体的新闻详情内容...
+<ul class="am-pagination">
+	<li class="am-pagination-prev"><a href=""><span class="am-icon-weixin"></span>上一篇：国庆放假通知公告</a></li>
+	<li class="am-pagination-next"><a href=""><span class="am-icon-qq">下一篇：元旦放假通知公告</a></li>
+</ul>
+</div>
+<!-- 1,基础类名am-panel 2,主题色 am-panel-success 3,面板组 am-panel-group 4,内部盒子的类名am-panel-hd am-panel-bd am-panel-footer 5,嵌套在am-panel-bd盒子的下面 -->
+<div class="am-panel-group">
+<div class="am-panel am-panel-default detail am-panel-success">
+	<div class="am-panel-hd">标题</div>
+	<div class="am-panel-bd">文字信息</div>
+	<table class="am-table">
+		<tr>
+			<td>文字</td>
+			<td>文字</td>
+			<td>文字</td>
+		</tr>
+		<tr>
+			<td>文字</td>
+			<td>文字</td>
+			<td>文字</td>
+		</tr>
+		<tr>
+			<td>文字</td>
+			<td>文字</td>
+			<td>文字</td>
+		</tr>
+	</table>
+	<ul class="am-list am-list-static">
+		<li>列表信息...</li>
+		<li>列表信息...</li>
+		<li>列表信息...</li>
+	</ul>
+	<div class="am-panel-footer">底部信息</div>
+</div>
+
+<div class="am-panel am-panel-default detail am-panel-success">
+	<div class="am-panel-hd">标题</div>
+	<div class="am-panel-bd">文字信息</div>
+	<table class="am-table">
+		<tr>
+			<td>文字</td>
+			<td>文字</td>
+			<td>文字</td>
+		</tr>
+		<tr>
+			<td>文字</td>
+			<td>文字</td>
+			<td>文字</td>
+		</tr>
+		<tr>
+			<td>文字</td>
+			<td>文字</td>
+			<td>文字</td>
+		</tr>
+	</table>
+	<ul class="am-list am-list-static">
+		<li>列表信息...</li>
+		<li>列表信息...</li>
+		<li>列表信息...</li>
+	</ul>
+	<div class="am-panel-footer">底部信息</div>
+</div>
+</div>
+
+<div class="am-progress detail am-progress-striped am-active">
+	<div class="am-progress-bar am-progress-bar-danger" style="width:30%;">30%</div>
+	<div class="am-progress-bar am-progress-bar-success" style="width:30%;">30%</div>
+</div>
+
+<div class="am-g">
+	<div class="am-u-lg-3"><a href="" class="am-thumbnail"><img src="1.jpg" alt=""><h5 class="am-thumbnail-caption">标题</h5></a></div>
+	<!-- am-avg-lg-4等份网格 -->
+	<div class="am-u-lg-3"><div class="am-thumbnail"><img class="am-thumbnail" src="1.jpg" alt="">
+	<div class="am-thumbnail-caption">
+		<h2>标题</h2>
+		<p>信息摘要...</p>
+		<button class="am-btn am-btn-success">按钮1</button>
+		<button class="am-btn am-btn-success">按钮2</button>
+	</div>
+	</div></div>
+	<div class="am-u-lg-3"><img class="am-thumbnail" src="1.jpg" alt=""></div>
+	<div class="am-u-lg-3"><img class="am-thumbnail" src="1.jpg" alt=""></div>
+</div>
+<style type="text/css">
+	.changeImg img{ max-width:100%;}
+</style>
+<ul class="am-avg-lg-4 changeImg">
+	<li><img class="am-thumbnail" src="1.jpg" alt=""></li>
+	<li><img class="am-thumbnail" src="1.jpg" alt=""></li>
+	<li><img class="am-thumbnail" src="1.jpg" alt=""></li>
+	<li><img class="am-thumbnail" src="1.jpg" alt=""></li>
+</ul>
+<button id="btn" class="am-btn am-btn-warning">按钮</button>
+<script>
+	document.getElementById("btn").onclick = function(){
+		this.className = "am-btn am-btn-warning am-animation-slide-left am-animation-reverse";
+	}
+</script>
+<article class="am-article">
+  <div class="am-article-hd">
+    <h1 class="am-article-title">永远的蝴蝶</h1>
+    <p class="am-article-meta">陈启佑（台湾） 2019-09-09</p>
+  </div>
+
+  <div class="am-article-bd">
+    <p class="am-article-lead">文字摘要...</p>
+	具体内容...
+	<hr class="am-article-divider" />
+	具体内容...
+  </div>
+</article>
+<div class="am-alert am-alert-success" data-am-alert>
+	文字信息... <span class="am-close">x</span>
+	<ul>
+	   <li>文字信息...</li>
+	   <li>文字信息...</li>
+	   <li>文字信息...</li>	
+	</ul>
+</div>
+<div class="am-alert am-alert-warning">
+	文字信息... <span class="am-close">x</span>
+</div>
+<script>
+	$(".am-alert-warning").alert('close');
+</script>
+
+
+<button class="am-btn am-btn-success" data-am-loading="{spinner:'circle-o-notch',loadingText:'加载中...',resetText:'加载完成'}">按钮</button>
+<script>
+	$(".am-btn-success").click(function(){
+		$(this).button('loading');
+		setTimeout(function(){
+			$(".am-btn-success").button("reset");
+		},5000);
+	});
+</script>
+
+<button class="am-btn am-btn-primary" data-am-button>按钮二</button>
+<div>按钮状态<p id="show-active">未激活</p></div>
+<script>
+	$(".am-btn-primary").click(function(){
+		if($(this).hasClass("am-active")){
+			$("#show-active").text("未激活");
+		}else{
+			$("#show-active").text("激活");
+		}
+	})
+</script>
+
+<div class="am-btn-group" data-am-button>
+	<label class="am-btn am-btn-danger"><input type="checkbox" /> 按钮1</label>
+	<label class="am-btn am-btn-danger"><input type="checkbox" /> 按钮2</label>
+	<label class="am-btn am-btn-danger"><input type="checkbox" /> 按钮3</label>
+</div>
+
+<div class="am-btn-group" data-am-button>
+	<label class="am-btn am-btn-danger"><input name="option" type="radio" /> 按钮1</label>
+	<label class="am-btn am-btn-danger"><input name="option" type="radio" /> 按钮2</label>
+	<label class="am-btn am-btn-danger"><input name="option" type="radio" /> 按钮3</label>
+</div>
+
+<div class="am-panel-group" id="accordion">
+  <div class="am-panel am-panel-default">
+    <div class="am-panel-hd">
+      <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-1'}">
+        新闻资讯
+      </h4>
+    </div>
+    <div id="do-not-say-1" class="am-panel-collapse am-collapse am-in">
+      <div class="am-panel-bd">
+        <ul class="am-list am-list-static">
+			<li>文字信息1...</li>
+			<li>文字信息2...</li>
+			<li>文字信息3...</li>
+		</ul>
+      </div>
+    </div>
+  </div>
+  <div class="am-panel am-panel-default">
+    <div class="am-panel-hd">
+      <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-2'}">
+        其他文字
+      </h4>
+    </div>
+    <div id="do-not-say-2" class="am-panel-collapse am-collapse">
+      <div class="am-panel-bd">
+         <ul class="am-list">
+         	<li>文字1</li>
+         	<li>文字2</li>
+         	<li>文字3</li>
+         </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--  data-am-collapse="{target: '#collapse-nav'}" -->
+  <div id="one">
+	  <div class="am-panel">
+  <button class="am-btn am-btn-primary am-example">Menu <i class="am-icon-bars"></i></button>
+<nav>
+  <ul class="am-nav am-collapse am-in">
+    <li><a href="">开始使用</a></li>
+    <li><a href="">CSS 介绍</a></li>
+    <li class="am-active"><a href="">JS 介绍</a></li>
+    <li><a href="">功能定制</a></li>
+  </ul>
+</nav>
+ </div>
+  <div class="am-panel">
+ <button class="am-btn am-btn-primary am-example">Menu <i class="am-icon-bars"></i></button>
+<nav>
+  <ul class="am-nav am-collapse">
+    <li><a href="">开始使用</a></li>
+    <li><a href="">CSS 介绍</a></li>
+    <li class="am-active"><a href="">JS 介绍</a></li>
+    <li><a href="">功能定制</a></li>
+  </ul>
+</nav>
+ </div>
+  <div class="am-panel">
+ <button class="am-btn am-btn-primary am-example">Menu <i class="am-icon-bars"></i></button>
+<nav>
+<style type="text/css">
+	.changeNav li a{ color:red;}
+	.changeNav li.am-active a{ background:red;}
+	.changeNav li.am-active a:hover{ background:#e1251b;}
+</style>
+  <ul class="am-nav changeNav am-collapse">
+    <li><a href="">开始使用</a></li>
+    <li><a href="">CSS 介绍</a></li>
+    <li class="am-active"><a href="">JS 介绍</a></li>
+    <li><a href="">功能定制</a></li>
+  </ul>
+</nav>
+</div>
+</div>
+<script>
+	$(".am-example").click(function(){
+		$(this).next("nav").find(".am-nav").collapse("toggle");
+	})
+	
+</script>
+<div class="am-dropdown" data-am-dropdown>
+	<span class="am-btn am-btn-primary am-dropdown-toggle" data-am-dropdown-toggle>按钮 <i class="am-icon-list"></i></span>
+	<ul class="am-dropdown-content">
+		<li><a href="">列表一</a></li>
+		<li><a href="">列表二</a></li>
+		<li><a href="">列表三</a></li>
+		<li><a href="">列表四</a></li>
+		<li><a href="">列表五</a></li>
+	</ul>
+</div>
+<style>
+	/* .changeWidth{ width:1024px;} am-dropdown-up*/
+	#two{ width:1024px;}
+	.am-dropdown-content img{ max-width:100%;}
+</style>
+<div id="two">
+<div class="am-dropdown am-dropdown-up" data-am-dropdown = "{justify: '#two'}">
+	<span class="am-btn am-btn-primary am-dropdown-toggle" data-am-dropdown-toggle>按钮 <i class="am-icon-list"></i></span>
+	<div class="am-dropdown-content changeWidth">
+		<p>文字段落</p>
+		<img src="1.jpg" alt="" />
+	</div>
+</div>
+</div>
+
+<div>
+<div class="am-dropdown am-dropdown-up" id="three">
+	<span class="am-btn am-btn-primary am-dropdown-toggle">按钮 <i class="am-icon-list"></i></span>
+	<div class="am-dropdown-content changeWidth">
+		<p>文字段落</p>
+		<img src="1.jpg" alt="" />
+	</div>
+</div>
+</div>
+<button class="am-btn am-btn-success special">按钮</button>
+<script>
+	$(function(){
+		// dropdown("open/close/toggle");
+		$("#three").dropdown('open');
+		$(".special").on("click",function(){
+			$("#three").dropdown('toggle');
+		});
+		
+	})
+	
+	/* $(".am-dropdown-toggle").click(function(){
+		 $(".am-dropdown-content.changeWidth").dropdown();
+	 }) */
+	
+</script>
+
+<div id="doc-dropdown-justify-js" style="width: 400px">
+  <div class="am-dropdown" id="doc-dropdown-js">
+    <button class="am-btn am-btn-danger am-dropdown-toggle">通过 JS 调用 <span class="am-icon-caret-down"></span></button>
+    <div class="am-dropdown-content">...</div>
+  </div>
+</div>
+<script>
+  $(function() {
+    $('#doc-dropdown-js').dropdown({justify: '#doc-dropdown-justify-js'});
+  });
+</script>
+
+<button class="am-btn am-btn-primary" data-am-modal="{target: '#doc-modal-0'}">Modal</button>
+
+<div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="doc-modal-0">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">
+     loading...
+    </div>
+    <div class="am-modal-bd">
+      <span class="am-icon-spinner am-icon-spin"></span>
+    </div>
+  </div>
+</div>
+
+<button class="am-btn am-btn-primary" data-am-modal="{target: '#doc-modal-1'}">Modal</button>
+
+<div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">Modal 标题
+      <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+    </div>
+    <div class="am-modal-bd">
+      Modal 内容。
+    </div>
+  </div>
+</div>
+
+<button class="am-btn am-btn-primary" data-am-modal="{target: '#doc-modal-2'}">Modal</button>
+
+<div class="am-modal" tabindex="-1" id="doc-modal-2">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">Modal 标题
+      <!-- <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a> -->
+    </div>
+    <div class="am-modal-bd">
+      Modal 内容。
+    </div>
+	 <div class="am-modal-footer">
+	  <span class="am-modal-btn">确定</span>
+	</div>
+  </div>
+</div>
+
+<button class="am-btn am-btn-primary" id="four">Modal</button>
+
+<div class="am-modal" tabindex="-1" id="doc-modal-3">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">Modal 标题
+      <!-- <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a> -->
+    </div>
+    <div class="am-modal-bd">
+      Modal 内容。
+    </div>
+	 <div class="am-modal-footer">
+	  <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+	   <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+	</div>
+  </div>
+</div>
+
+<button class="am-btn am-btn-primary" id="five">Modal</button>
+
+<div class="am-modal am-modal-prompt" tabindex="-1" id="doc-modal-4">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">Modal 标题
+      <!-- <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a> -->
+    </div>
+    <div class="am-modal-bd">
+		
+      Modal 内容。
+	  <input type="text" class="am-modal-prompt-input">
+    </div>
+	 <div class="am-modal-footer">
+	  <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+	   <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+	</div>
+  </div>
+</div>
+<script>
+	$(function() {
+  $('#five').on('click', function() {
+    $('#doc-modal-4').modal({
+      relatedElement: this,
+      onConfirm: function(data) {
+        alert('你输入的是：' + data)
+      },
+      onCancel: function() {
+        alert('不想说!');
+      }
+    });
+  });
+});
+</script>
+<script type="text/javascript">
+	$(function() {
+  $('#four').on('click', function() {
+    $('#doc-modal-3').modal({
+      relatedElement: this,
+      onConfirm: function() {
+        alert('你是猴子派来的逗比!')
+      },
+      onCancel: function() {
+        alert('你不确定是不是猴子派来的逗比!')
+      }
+    });
+  });
+});
+</script>
+
+<button class="am-btn am-btn-success" id="doc-prompt-toggle">Prompt</button>
+
+<div class="am-modal am-modal-prompt" tabindex="-1" id="my-prompt">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">Amaze UI</div>
+    <div class="am-modal-bd">
+      来来来，吐槽点啥吧
+      <input type="text" class="am-modal-prompt-input">
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+      <span class="am-modal-btn" data-am-modal-confirm>提交</span>
+    </div>
+  </div>
+</div>
+
+<script>
+	$(function() {
+  $('#doc-prompt-toggle').on('click', function() {
+    $('#my-prompt').modal({
+      relatedElement: this,
+      onConfirm: function(data) {
+        alert(data["data"])
+      },
+      onCancel: function() {
+        alert('不想说!');
+      }
+    });
+  });
+});
+
+</script>
+<div class="content"></div>
+</body>
+</html>

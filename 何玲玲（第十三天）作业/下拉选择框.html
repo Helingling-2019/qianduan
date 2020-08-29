@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="js/jquery2.0.js"></script>
+	<style>
+		*{margin: 0;padding: 0;}
+		ul,li{list-style: none;}
+		.form-table{
+			width:300px;
+			margin: 20px auto;
+		}
+		.form-table select{
+			display: none;
+		}
+		.wrap{}
+		.wrap span{
+			border:1px solid greenyellow;
+			border-radius: 6px;
+			position: relative;
+			display:block;
+			width:278px;
+			height:36px;
+			border:1px solid greenyellow;
+			cursor:pointer;
+			line-height: 36px;
+			padding: 0 10px;
+			color: #333;
+		}
+		.wrap span::after{
+			position: absolute;
+			content: '';
+			width:0;
+			height:0;
+			border: 5px solid transparent;
+			border-top-color: greenyellow;
+			right:10px;
+			top:16px;
+		}
+		.wrap span.changeRadius::after{
+			top:11px;
+			border-bottom-color: greenyellow;
+			border-top-color:transparent;
+		}
+		.wrap ul li{
+			width:278px;
+			height:36px;
+			cursor:pointer;
+			border:1px solid greenyellow;
+			line-height: 36px;
+			padding: 0 10px;
+			color: #333;
+			border-top:none;
+		}
+		.wrap ul li::selection{
+			background:#fff;
+			color:#333;
+		}
+		.wrap span.changeRadius{
+			border-radius: 6px 6px 0 0;
+		}
+		.last-changeRadius{
+			border-radius: 0 0 6px 6px;
+		}
+		.wrap ul li:hover{
+			background:greenyellow;
+			color:#fff;
+		}
+		.wrap span:hover{
+			background:#fff;
+			color: greenyellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="form-table">
+	<select name="choose" id="">
+		<option value="">选择政治面貌</option>
+		<option value="">党员</option>
+		<option value="">预备党员</option>
+		<option value="">团员</option>
+		<option value="">群众</option>
+	</select>
+	</div>
+	<script>
+		var $form = $(".form-table");
+		var $option = $form.find("option");
+		var str = "";
+		for(var i=0;i<$option.length;i++){
+			str += "<li>" + $option.eq(i).text() + "</li>";
+		}
+		$form.append("<div class='wrap' data-role='包含转化的数据'><span data-role='显示区域'></span><ul></ul></div>");
+		$(".wrap ul").html(str).hide();
+		var choose = $(".form-table select option:selected").index()==-1?$(".wrap ul li:first").text():$(".form-table select option:selected").text();
+		$(".wrap span").text(choose);
+		$(".wrap span").on("click",function(){
+			$(".wrap ul").slideToggle(200);
+			$(this).toggleClass("changeRadius");
+			$(".wrap ul li:last").toggleClass("last-changeRadius");
+		});
+		$(".wrap ul li").on("click",function(){
+			$(".wrap ul").hide();
+			$(".wrap span").removeClass("changeRadius");
+			$("wrap ul li:last").removeClass("last-changeRadius");
+			$("wrap span").text($(this).text());
+			var index = $(this).index();
+			$(".form-table select option").eq(index).prop("select","true").sibings("option").prop("selected",false);
+		})
+	</script>
+</body>
+</html>

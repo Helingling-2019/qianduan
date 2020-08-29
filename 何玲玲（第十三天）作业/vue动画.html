@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="js/vue.js"></script>
+	<link rel="text/css" href="js/animate.css"/>
+	<style>
+		/* #app div{
+			width:300px;
+			height:300px;
+			background: skyblue;
+		} */
+		/* @keyframes list{
+			from{
+				opacity: 0;
+				transform: translateX(30px) rotate(30deg);
+			}
+			to{
+				opacity: 1;
+				transform: none;
+			}
+		} */
+		/* .myFirst-enter-active{
+	 	transition: opacity 1s ease;
+		animation: list 3s line;
+		}
+		.myFirst-leave-active{
+			animation: list 3s linear reverse;
+		} */
+		/* .myFirst-enter,.myFirst-leave-to{
+			opacity: 0;
+			transform: translateX(30px) rotate(30deg);
+		} */
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- {{showMessage()}} -->
+		{{displayMessage}}
+		<!-- <button @click="show=!show">点击</button>
+	
+	<transition name="myFirst" enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">
+		<div v-if="show">动画效果</div>
+	</transition> -->
+	</div>
+	<script>
+		var app = new Vue({
+			el:"#app",
+			data:{
+				message:"信息"
+			},
+			computed:{
+				showMessage:function(){
+					alert(this.message);
+				},
+				displayMessage:function(){
+					console.log(this.message);
+				}
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<link rel="stylesheet" href="layui/css/layui.css">
+</head>
+   <body>
+<style type="text/css">
+	.limit-width{ width:1000px; margin:0 auto;}
+	.limit-width .layui-form-select dl dd.layui-this{
+		background:red;}
+</style>
+<!-- H5新增的标签属性required:必填选项 autocomplete:on默认开启之前记录的输入值 form-control-static layui-word-aux -->
+
+	   <div class="limit-width">
+    <form class="layui-form" action="">
+		<div class="layui-form-item"> <!-- form-group -->
+			<label class="layui-form-label">输入框</label> <!-- controle-label -->
+			<div class="layui-input-block">
+			<input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" />
+			</div>
+			
+		</div>
+		
+		<div class="layui-form-item">
+    <label class="layui-form-label">选择框</label>
+    <div class="layui-input-block">
+      <select lay-verify="required" lay-search> <!-- lay-verify：验证该选项 disabled -->
+        <option value="">请选择城市</option>
+        <option value="0">北京</option>
+        <option value="1">上海</option>
+        <option value="2">广州</option>
+        <option value="3">深圳</option>
+        <option value="4">杭州</option>
+      </select>
+    </div>
+	
+		</div>
+		
+	<div class="layui-form-item">
+    <label class="layui-form-label">复选框</label>
+    <div class="layui-input-block">
+      <input type="checkbox" title="兴趣爱好" />
+      <input type="checkbox" title="阅读" checked />
+      <input type="checkbox" title="发呆" />
+    </div>
+  </div>
+<div class="layui-form-item">
+    <label class="layui-form-label">开关</label>
+    <div class="layui-input-block">
+      <input type="checkbox" name="switch" lay-text='开|关' lay-skin="switch" />
+    </div>
+  </div>
+  
+  <div class="layui-form-item">
+    <label class="layui-form-label">单选框</label>
+    <div class="layui-input-block">
+      <input type="radio" name="sex" title="m">
+      <input type="radio" name="sex" title="f" checked>
+    </div>
+  </div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">文本域</label>
+    <div class="layui-input-block">
+      <textarea class="layui-textarea"></textarea>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+	<select name="quiz">
+  <option value="">请选择</option>
+  <optgroup label="城市记忆">
+    <option value="你工作的第一个城市">你工作的第一个城市？</option>
+  </optgroup>
+  <optgroup label="学生时代">
+    <option value="你的工号">你的工号？</option>
+    <option value="你最喜欢的老师">你最喜欢的老师？</option>
+  </optgroup>
+</select>
+	</form>
+
+
+	<script src="layui/layui.js"></script>
+<script>
+layui.use('form', function(){
+  var form = layui.form;
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+	  //alert(data);
+    layer.msg(JSON.stringify(data.field)); // stringify():将json对象转化成字符串 .msg()弹出层方法 data.field:数据字段集
+    return false; //阻止表单提交
+  });
+});
+</script>
+   </body>
+</html>

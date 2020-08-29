@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<link rel="stylesheet" href="dist/css/amazeui.min.css">
+	<script src="dist/js/jquery.min.js"></script>
+	<script type="text/javascript" src="dist/js/amazeui.min.js"></script>
+</head>
+<body>
+	<ul>
+		<li class="am-hide-sm-only">2</li>
+		<li class="am-show-sm-only"></li>
+		<li class="am-show-md-up">4</li>
+		<li class="am-show-md-down">5</li>
+		<li class="am-show-md-only">6</li>
+		<li class="am-show-lg-only">7</li>
+		<li class="am-show-lg-up">8</li>
+	</ul>
+	<ul>
+		<li class="am-show-landscape">横屏可见...</li>
+		<li class="am-show-portrait">竖屏可见...</li>
+	</ul>
+	<div class="btn-group">
+		<button class="am-btn am-disabled am-btn-lg ">按钮</button>
+		<span class="am-btn am-btn-primary am-active am-btn-sm am-icon-plane">点我</span>
+		<span class="am-btn am-btn-secondary am-disabled am-icon-money">点我</span>
+		<span class="am-btn am-btn-warning am-icon-refresh">点我</span>
+		<span class="am-btn am-btn-danger am-icon-recycle">点我</span>
+		<span class="am-btn am-btn-default am-icon-phone">点我</span>
+		<span class="am-btn am-btn-success am-round am-icon-minus">点我</span>
+		<span class="am-btn am-btn-link">点我</span>
+		<span class="am-icon-qq">wifi</span>
+		<button class="am-btn am-btn-danger"><i class="am-icon-spinner am-icon-spin"></i>加载中</button>
+	</div>
+	<button class="am-btn am-btn-denger special">登录</button>
+	<form action="" class="am-form">
+		<fieldset id=""><div class="am-form-group">
+		<lengend>标题</lengend>
+		<label>电子邮箱:</label><input type="email" />
+		</div>
+		<input type="radio" name="" id="" value=""/><label for=""></label>
+		</fieldset>
+	</form>
+	<form action="" class="am-form am-form-inline">
+		<fieldset id="">
+			<legend>标题</legend>
+			<div class="am-form-group am-form-icon"><i class="am-icon-calendar"></i><input type="text" class="am-form-field"></div>
+			<div class="am-form-group am-form-error am-form-icon am-form-feedback">
+				<label for="two">提示信息</label><input type="text" id="two" class="am-form-field"><span class="am-icon-warning"></span>
+			</div>
+		</fieldset>
+	</form>
+	<style>
+		.limitWidth{width:500px;}
+	</style>
+	<form action="" class="am-form limitWidth">
+		<fieldset id="" class="am-form-set">
+			<input type="text">
+			<input type="text">
+			<input type="text">
+		</fieldset>
+	</form>
+	<table class="am-table am-table-striped am-table-hover">
+		<tr>
+			<td>何来</td>
+			<td>何来</td>
+			<td>何来</td>
+			<td>何来</td>
+		</tr>
+		<tr class="am-active">
+			<td>何来</td>
+			<td>何来</td>
+			<td>何来</td>
+			<td>何来</td>
+		</tr>
+		<tr>
+			<td>何来</td>
+			<td>何来</td>
+			<td>何来</td>
+			<td>何来</td>
+		</tr>
+		<tr>
+			<td>何来</td>
+			<td>何来</td>
+			<td>何来</td>
+			<td>何来</td>
+		</tr>
+		<tr>
+			<td>何来</td>
+			<td>何来</td>
+			<td>何来</td>
+			<td>何来</td>
+		</tr>
+	</table>
+	<input type="file">
+	<!-- <div >
+		<i></i>
+	</div> -->
+	<script>
+		document.querySelector(".special").onclick = function(){
+			this.innerHTML = '<i class="am-icon-spinner am-icon-spin"></i>登录中';
+		}
+	</script>
+	<!-- am-badge-success/danger/secondary/warning -->
+	<div class="am-badge am-badge-primary"></div>
+	<ol class="am-breadcrumb">
+		<li><a href="" class="am-icon-home">首页</a></li>
+		<li><a href="">新闻中心</a></li>
+		<li class="am-active">新闻详情</li>
+	</ol>
+	<div class="am-btn-toolbar">
+		<div class="am-btn-group am-btn-group-xs">
+			<span class="am-btn am-btn-danger">点我</span>
+			<span class="am-btn am-btn-danger">点我</span>
+			<span class="am-btn am-btn-danger">点我</span>
+		</div>
+		<div class="am-btn-group am-btn-group-stacked">
+			<span class="am-btn am-btn-danger">点我</span>
+			<span class="am-btn am-btn-danger">点我</span>
+			<span class="am-btn am-btn-danger">点我</span>
+		</div>
+	</div>
+	<div class="am-btn-group am-btn-group-xs am-btn-group-justify">
+	   	   <span class="am-btn am-btn-danger">按钮</span>
+	   	   <span class="am-btn am-btn-danger">按钮</span>
+	   	   <span class="am-btn am-btn-danger">按钮</span>
+	   </div>
+	   <div class="am-btn-group">
+	  <button class="am-btn am-btn-secondary">下拉按钮</button>
+	  <div class="am-dropdown" data-am-dropdown>
+	    <button class="am-btn am-btn-secondary am-dropdown-toggle" data-am-dropdown-toggle> <span class="am-icon-caret-down"></span></button>
+	    <ul class="am-dropdown-content">
+	      <li class="am-dropdown-header">标题</li>
+	      <li><a href="#">快乐的方式不只一种</a></li>
+	      <li class="am-active"><a href="#">最荣幸是</a></li>
+	      <li><a href="#">谁都是造物者的光荣</a></li>
+	      <li class="am-disabled"><a href="#">就站在光明的角落</a></li>
+	      <li class="am-divider"></li>
+	      <li><a href="#">天空海阔 要做最坚强的泡沫</a></li>
+	    </ul>
+	  </div>
+	</div>
+	
+	
+	<div class="am-btn-group">
+	  <button class="am-btn am-btn-secondary">上拉按钮</button>
+	  <div class="am-dropdown am-dropdown-up" data-am-dropdown>
+	    <button class="am-btn am-btn-secondary am-dropdown-toggle" data-am-dropdown-toggle> <span class="am-icon-caret-up"></span></button>
+	    <ul class="am-dropdown-content">
+	      <li class="am-dropdown-header">标题</li>
+	      <li><a href="#">快乐的方式不只一种</a></li>
+	      <li class="am-active"><a href="#">最荣幸是</a></li>
+	      <li><a href="#">谁都是造物者的光荣</a></li>
+	      <li class="am-disabled"><a href="#">就站在光明的角落</a></li>
+	      <li class="am-divider"></li>
+	      <li><a href="#">天空海阔 要做最坚强的泡沫</a></li>
+	    </ul>
+	  </div>
+	</div>
+	<!-- &times; / &nbsp; -->
+	<span class="am-close am-close-alt am-icon-times am-close-spin"></span>
+	<!--  am-comments-list-flip -->
+	<div class="am-comments-list">
+	<article class="am-comment am-comment-flip am-comment-secondary"> <!-- 评论容器 -->
+	  <a href="">
+	    <img src="2.jpg" class="am-comment-avatar" alt=""/> <!-- 评论者头像 -->
+	  </a>
+	
+	  <div class="am-comment-main"> <!-- 评论内容容器 -->
+	    <header class="am-comment-hd">
+	      <!--<h3 class="am-comment-title">评论标题</h3>-->
+	      <div class="am-comment-meta"> <!-- 评论元数据 -->
+	        <a href="#link-to-user" class="am-comment-author">峰值之水</a> <!-- 评论者 -->
+	        评论于 <time datetime="">2019-09-09</time>
+	      </div>
+	    </header>
+	
+	    <div class="am-comment-bd">电影很好看。。。
+		<blockquote>妈：我打算在下个月和樱子结婚。</blockquote>
+		</div> <!-- 评论内容 -->
+	  </div>
+	</article>
+	<article class="am-comment"> <!-- 评论容器 -->
+	  <a href="">
+	    <img src="2.jpg" class="am-comment-avatar" alt=""/> <!-- 评论者头像 -->
+	  </a>
+	
+	  <div class="am-comment-main limitWidth"> <!-- 评论内容容器 -->
+	    <header class="am-comment-hd">
+	      <!--<h3 class="am-comment-title">评论标题</h3>-->
+	      <div class="am-comment-meta"> <!-- 评论元数据 -->
+	        <a href="#link-to-user" class="am-comment-author">峰值之水</a> <!-- 评论者 -->
+	        评论于 <time datetime="">2019-09-09</time>
+	      </div>
+	    </header>
+	
+	    <div class="am-comment-bd">电影很好看。。。
+		<blockquote>妈：我打算在下个月和樱子结婚。</blockquote>
+		</div> <!-- 评论内容 -->
+	  </div>
+	</article>
+	
+	<article class="am-comment"> <!-- 评论容器 -->
+	  <a href="">
+	    <img src="2.jpg" class="am-comment-avatar" alt=""/> <!-- 评论者头像 -->
+	  </a>
+	
+	  <div class="am-comment-main limitWidth"> <!-- 评论内容容器 -->
+	    <header class="am-comment-hd">
+	      <!--<h3 class="am-comment-title">评论标题</h3>-->
+	      <div class="am-comment-meta"> <!-- 评论元数据 -->
+	        <a href="#link-to-user" class="am-comment-author">峰值之水</a> <!-- 评论者 -->
+	        评论于 <time datetime="">2019-09-09</time>
+	      </div>
+	    </header>
+	
+	    <div class="am-comment-bd">电影很好看。。。
+		<blockquote>妈：我打算在下个月和樱子结婚。</blockquote>
+		</div> <!-- 评论内容 -->
+	  </div>
+	</article>
+	</div>
+	<i class="am-icon-weixin am-icon-spin"></i>
+	<div class="am-input-group">
+		<input type="text" class="am-form-field">
+		<div class="am-input-group-label">
+			<i class="am-icon-winxin"></i>
+		</div>
+	</div>
+	<div class="am-input-group">
+	<input type="text" class="am-form-field">
+	<div class="am-input-group-label">
+		<input type="checkbox">
+	</div>
+	</div>
+	<div class="am-input-group am-input-grup-sm am-input-group-waning">
+		<input type="text" class="am-form-field">
+		<div class="am-input-group-btn">
+			<button type="" class="am-btn am-btn-warning am-btn-lg"><i class="am-icon-search"></i></button>
+		</div>
+	</div>
+	<ul class="am-list am-list-static am-icon-border am-list-striped limitWidth">
+		<li><span class="am-badge am-badge-danger">yes</span><span class="am-badge am-badge-secondary">no</span>行走在江湖中，每一寸土地都是有价值。</li>
+		<li>我的人生我做主，</li>
+		<li></li>
+		<li></li>
+	</ul>
+	<ul class="am-nav am-nav-tabs">
+	<li class="am-active"><a href="javascript:;">首页</a></li>
+	<li ><a href="#">项目</a></li>
+	<li class="am-dropdown" data-am-dropdown"><a  am-icon-exclamation-toggle href="javascript:;">菜单</a><span class="am-icon-caret"></span></li>
+	<li></li>	
+	</ul>
+	<ul class="am-dropdown-content">
+		<li class="am-dropdown-head">Header</li>
+		<li><a href="#">1.一行代码，简单快捷</a></li>
+		<li class="am-active"><a href="#">2.网站不变且唯一</a></li>
+		<li class="am-disabled"><a href="#">2.网站不变且唯一</a></li>
+	</ul>
+</body>
+</html>

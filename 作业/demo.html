@@ -1,0 +1,92 @@
+	<!DOCTYPE html>
+	<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+		<link rel="stylesheet" href="layui/css/layui.css">
+		<link rel="stylesheet" href="bootstrap.min.css" />
+		<script type="text/javascript" src="vue.js"></script>
+		<script src="layui/layui.js"></script>
+		<style>
+			.definition-line{
+				line-height: 34px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="container" id="box">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="text-info">{{title}}</h2>
+				</div>
+				
+			</div>
+		
+		<div class="row">
+			<div class="col-md-5">
+				<input type="text" v-model="inputData" placeholder="请输入便签" class="form-control" />
+			</div>
+			<div class="col-md-7">
+				<button class="btn btn-info" @click="add">添加事务</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<ul>
+					<li v-for="(item,index) in arr" v-show="item.show">
+						<h2>
+						<div class="col-md-5">
+							<span class="text-success definition-line">{{item.insertData}}</span>
+						</div>
+						<div class="col-md-7">
+							<button class="btn btn-warning" @click="remov(index)">删除事务</button>
+						</div>
+						</h2>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+		<script>
+			var box = new Vue({
+				el:"#box",
+				data:{
+					title:"便签",
+					messsage:"请输入便签",
+					inputData:'',
+					arr:[
+						{insertData:"",show:false}
+					]
+					},
+					methods:{
+						add:function(){
+							if(this.inputData==""){
+								var msg = this.messsage;
+								layui.use("layer",function(){
+									var layer = layui.layer;
+									layer.open({
+										title:"温馨提示",
+										content:msg,
+										icon:2,
+										offset:["120px","100px"]
+									})
+								})
+							}else{
+								this.arr.splice(0,0,{
+									insertData:this.inputData,
+									show:true
+								});
+								this.inputData = "";
+							}
+						},
+						remov:function(param){
+							this.arr[param].show = false;
+						}
+					}
+					})
+		</script>
+	</body>
+	</html

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8"/>
+	  <style>
+		table{
+			margin:0 auto;
+			width:200px;
+			border:1px  solid black;
+		}
+		 table button{
+				width:100%;
+				height:40px;
+		 }
+		 table td{
+			  background:blue;
+			  color:white;
+		 }
+		 </style>
+		 <script type="text/javascript" src="./jquery2.0.js"></script>
+		 <script type="text/javascript' src="db.js"></script>
+		<body>
+			<div align="center">成语消消乐</div>
+			<div align="center">
+			当前第<font color="green"id="current_level_text">1</font>关&nbsp;
+			得分<font id="gain_scores_txt" color="green">0</font>分&nbsp;
+			思考<font id="think_time" color="red">0</font>&nbsp;
+			总耗时<font id="total_times" color="blue">0</font>s&nbsp;
+			</div>
+			<table border='0' cellpadding='0' cellspacing='0'>
+			<tbody id="mytbody">
+		</tbody>
+	</table>
+	<script>
+	document.getEmlementById.ready(function(){
+		setInterval(function(){
+			$("#think_time").text(parseInt((Date.now()-game.last_time)/1000));
+			$("#total_times").text(parseInt("#total_times").text())+1);
+	},1000);
+		var game={
+			dbs:list,
+			chooseData:[],
+			recordChooseText:"",
+			recordChooseBtn:[],
+			current_index:0,
+			every_words:6,
+			every_right_num:0,
+			current_words:0,
+			gain_scores:0,
+			every_scores:5,
+			luanxu:function(){
+					var dbtxt = "";
+					    var start = game.current_index*game.every_words;
+						var end = start + game.every_words <= list.length ?
+						start + game.every_words : list.length;
+						game.current_words = end - start;
+						if(game.current_words <= 0){
+							end = 0;
+							game.current_words = 0;
+						}
+						for(var i=start;i<end;i++){
+							dbtxt +=list[i];
+							this.chooseFata.push(list[i]);
+						}
+						var luanxu = [];
+						while(dbtxt.length>0){
+							var index = parseInt(Math.random()*dbtxt.length);
+							luanxu.push(dbtxt.charAt(index));
+							dbtxt = dbtxt.substring(0,index)+dbtxt.substring(index+1,dbtxt.length);
+						}
+						return luanxu;
+			},
+			createTable:function(words){
+				var len = 0;
+				var tbody = $("#mytbody");
+				tbody.empty();
+				for(var i=0;i<game.current_words;i++){
+					var tr = $("<tr></tr>");
+					for(var j =0;j<4;j++){
+						var td = $("<td></td>");
+						td.append("<button type='button'>"+words[len++]+"</button>");
+						tr.append(td);
+					}
+					tbody.append(tr);
+				}
+			},
+			removeBtn:function(){
+				for(var i=0;i<game.recordChooseBtn.length;i++){
+					game.recordChooseBtn[i].remove();
+				}
+			},
+			nextLevel:function(){
+				if(game.every_right_num == game.current_words){
+					game.current_index ++;
+					alert("恭喜您进入第"+ game.current_index +"关");
+					game.every_right_num = 0;
+					game.init();
+					$("#current_level_text").text(game.current_index+1);
+					if(game.current_words <= 0){
+						alert("您已经是这个宇宙上最厉害的人了。");
+						window.location.reload();
+					}
+				}
+			},
+			check:function(){
+				if(game.recordChooseBtn.length <4)return;
+				var find = false;
+				  for(var i =0;i<game.chooseData.length;i++){
+				     if(game.recordChooseText == game.chooseData[i]){
+					     find = true;
+						 break;
+					 }
+				  }
+				  if(find){
+					 game.every_right_num ++;
+					 game.removeBtn();
+					 game.nextLevel();
+					 game.last_time = Date.num();
+					 
+					 game.gain_scores += game.every_scores;
+					document.getEmlementById("$gain_scores_txt").text(game.gain_scores);
+				  }
+				  document.getEmlementById(".selectbtn").removeClass();
+				  game.recordChooseBtn = [];
+				  game.recordChooseText = "";
+			},
+			init:function(){
+				var dbs = this.luanxu();
+				this.createTable(dbs);
+				
+			},
+			bindEvent:function(){
+				document.getEmlementById("#mytbody").click(function(e){
+					var btn = e.target;
+					if(btn.getAttribute("type") == "button"){
+						game.recordChooseText += btn.innerText;
+						game.recordChooseBtn.push($btn));
+						$(btn).attr("class","Selectbtn");
+						game.check();
+					}
+				});
+			}
+		};
+		game.init();
+		game.bindEvent();
+		});
+		</script>
+		</body>
+	</head>
+</html>

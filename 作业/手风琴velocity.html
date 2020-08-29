@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="vue.js"></script>
+	<script src="velocity.min.js"></script>
+	<style>
+		*{margin:0;padding: 0;}
+		ul li{
+			list-style: none;
+		}
+		.contion{
+			width:1000px;
+			margin: 100px auto;
+		}
+		.contion li {
+		    float: left;
+		    list-style: none;
+		    width: 100px;
+		    height：184px;
+		    transition: all 2s;
+		    position: relative;
+		    overflow: hidden;
+		    border-left: 2px solid rgba(255, 255, 255, .8);
+		    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+		}
+		/* .contion ul:hover li {
+		    width: 80px;
+		} 
+		.contion ul li:hover {
+		    width: 500px;
+		} */
+		.contion a {
+		    color: #fff;
+		    text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="contion" id="app">
+		<ul>
+			<transition v-on:enter="enterFunc" v-on:leave="leaveFunc" v-bind:css='false'>
+			<li>
+				<p class="box">
+				<a href="#">
+				<img src="1.png"></a>
+				</p>
+			</li>
+			</transition>
+			<transition v-on:enter="enterFunc" v-on:leave="leaveFunc" v-bind:css='false'>
+				<li>
+					<p class="box">
+					<a href="#"><img src="2.png"></a>
+					</p>
+				</li>
+			</transition>
+			<transition v-on:enter="enterFunc" v-on:leave="leaveFunc" v-bind:css='false'>
+				<li >
+					<p class="box">
+					<a href="#"><img src="3.png"></a>
+					</p>
+				</li>
+				</transition>
+				<transition v-on:enter="enterFunc" v-on:leave="leaveFunc" v-bind:css='false'>
+				<li >
+					<p class="box">
+					<a href="#"><img src="6.png"></a>
+					</p>
+				</li>
+				</transition>
+				<transition v-on:enter="enterFunc" v-on:leave="leaveFunc" v-bind:css='false'>
+				<li >
+					<p class="box">
+					<a href="#"><img src="8.png"></a>
+					</p>
+				</li>
+				</transition>
+				<transition v-on:enter="enterFunc" v-on:leave="leaveFunc" v-bind:css='false'>
+				<li >
+					<p class="box">
+					<a href="#"><img src="22.png"></a>
+					</p>
+				</li>
+				</transition>
+				<transition v-on:enter="enterFunc" v-on:leave="leaveFunc" v-bind:css='false'>
+				<li >
+					<p class="box">
+					<a href="#"><img src="46.png"></a>
+					</p>
+				</li>
+				</transition>
+		</ul>
+	</div>
+	<script>
+		var app = new Vue({
+			el:"#app",
+			
+			methods:{
+				enterFunc:function(el,done){
+					Velocity(el,{width:'80px'},{duration:300})
+					Velocity(el,{width:'500px'},{complete:done})
+				},
+				leaveFunc:function(el,done){
+					Velocity(el,{width:'500px'},{duration:300})
+					Velocity(el,{width:'80px'},{complete:done})
+				}
+			}
+		})
+	</script>
+</body>
+</html>

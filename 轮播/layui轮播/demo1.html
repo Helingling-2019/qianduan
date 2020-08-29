@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script type="application/javascript" src="layui/layui.all.js"></script>
+	
+     <link rel="stylesheet" href="layui/css/layui.css">
+	
+	<style>
+		.changeColor{
+			color:green;
+			font-size:100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="layui-icon-container">
+	<button class="layui-btn layui-btn-bormal layui-anim layui-anim-up">登录</button>
+	<button class="layui-btn layui-btn-warm layui-anim layui-anim-loop">登录</button>
+	<button class="layui-btn layui-btn-danger layui-anim layui-anim-scale">默认</button>
+	<div class="layui-btn layui-btn-radius layui-btn-lg"><i class="layui-icon layui-icon-refrensh"></i>刷新</div>
+	<div class="layui-btn layui-btn-radius layui-btn-lg"><i class="layui-icon layui-icon-refrensh"></i>登录</div>
+	<i class="layui-icon layui-icon-login-wechat changeColor"></i>
+	</div>
+	
+	<ul class="layui-nav">
+		<li class="layui-nav-item layui-this"><a href="">最新活动</a></li>
+		<li class="layui-nav-item"><a href="">产品</a></li>
+		<li class="layui-nav-item"><a href="">大数据</a></li>
+		<li class="layui-nav-item"><a href="javascript:;">解决方案</a>
+		<dl class="layui-nav-child">
+			<dd><a href="">移动模块</a></dd>
+			<dd><a href="">后台模板</a></dd>
+			<dd><a href="">电商平台</a></dd>
+		</dl>
+		</li>
+		<li class="layui-nav-item"><a href=" ">社区</a></li>
+	</ul>
+	<ul class="layui-nav layui-nav-tree">
+		<li class="layui-nav-item layui-nav-itemed">
+			<a href="javascript:void(0);"></a>
+			<dl class="layui-nav-child">
+				<dd><a href="javascript:;">选项1</a></dd>
+				<dd><a href="javascript:;">选项2</a></dd>
+				<dd><a href="">跳转</a></dd>
+			</dl>
+		</li>
+		
+	</ul>
+	<div class="tab">
+		<span class="layui-breadcrumb changeFont" lay-separator="~">
+			<a href="">首页</a>
+			<a href="">国际新闻</a>
+			<a href="">亚太地区</a>
+			<a><cite>正文</cite></a>
+		</span>
+	</div>
+	<div class="layui-tab layui-change-bg">
+		<ul class="layui-tab-title">
+			<li class="layui-this">网站建设</li>
+			<li>用户管理</li>
+			<li>权限分配</li>
+			<li>商品管理</li>
+			<li>订单管理</li>
+		</ul>
+		<div class="layui-tab-content">
+			<div class="layui-tab-item layui-show">内容1</div>
+			<div class="layui-tab-item">内容2</div>
+			<div class="layui-tab-item">内容3</div>
+		</div>
+	</div>
+	<script src="layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use('element',function(){
+			var element = layui.element;
+		})
+	</script>
+</body>
+</html>

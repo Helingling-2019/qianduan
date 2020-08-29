@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="js/vue.js"></script>
+	<style>
+		.red{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" :class={active:isActive,another:isActive,newClass:newBool}>
+		细腻
+	</div>
+	<script>
+		var app = new Vue({
+			el:"#app",
+			data:{
+				number:30,
+				isActive:true,
+				newBool:true
+			}
+		})
+	</script>
+	<div id="ele" :class={obj}>
+		
+	</div>
+	<script>
+		var ele = new Vue({
+			el:"#ele",
+			data:{
+				obj:'newClass'
+			}
+		})
+	</script>
+	<style>
+		.base{
+			width:100px;
+			height:100;
+		}
+		.base1{
+			width:100px;
+			height:100px;
+		}
+		.base2{
+			background:sandybrown;
+		}
+	</style>
+	<div id="ano" v-bind:class="obj">
+		
+	</div>
+	<script>
+		var ano = new Vue({
+			el:"#ano",
+			data:{
+				
+			},
+			computed:{
+				obj:function(){
+					return{
+						base:true,
+						base1:true,
+						base2:true
+					}
+				}
+			}
+		})
+	</script>
+	<style>
+		.first{width:100px;height:100px;}
+		.second{background:skyblue;}
+	</style>
+	<div id="item" :class=[one,two] :style="styleObj">how are you</div>
+	<script>
+		var item = new Vue({
+			el:"#item",
+			data:{
+				one:"first",
+				two:"second",
+				color1:"red",
+				width1:"300px",
+				styleObj:{
+					color:"red",
+					width:"200px"
+				}
+			}
+		})
+	</script>
+	<div id="web" :style="[one,two]"></div>
+	<script>
+		var web = new Vue({
+			el:"#web",
+			data:{
+				one:{
+					color:'yellow',
+					backgroundColor:'yellow'
+				},
+				two:{
+					width:'300px',
+					height:'180px'
+				}
+			}
+		})
+	</script>
+</body>
+</html>

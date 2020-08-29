@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script type="text/javascript" src="js/jquery2.0.js"></script>
+</head>
+<body>
+	<textarea rows="10" cols="20" class="info"></textarea>
+	<span>剩余<i class="leave">150</i>字</span>
+	<p class="app">Hello world</p>
+	<input type="text" value="文本输入框 " />
+	<script>
+		/* var pattern = /\s/g;
+		var String = "ldfkgaispbd"; */
+		$(function(){
+			var $info = $(".info");
+			var $leave = $(".leave");
+			var markup = true;
+			$info.on("compositionstart",function(){
+				markup = false;
+			});
+			$info.keyup(function(){
+				if(markup==true){
+					var $length = $info.val().length;
+					$leave.text(150-$length);
+				}else{
+					$info.on("compositionend",function(){
+						var $length = $info.val().length;
+						$leave.text(150-$length);
+						markup = true;
+					})
+				}
+			})
+		})
+	</script>
+	<script>
+		$(function(){
+			var $app = $(".app");
+			$app.find("p").text($app.find(":text").val());
+			var $p = $app.find("p");
+			var $input = $app.find(":text");
+			$input.on("keyup",function(){
+			
+				
+			})
+			/* $(".show").html($(".ctr")) */
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		{{showAge()}}{{showScore()}}
+	</div>
+	<div id="box">
+		{{showAge()}}{{showName()}}{{showScore}}
+	</div>
+	<script>
+		var mix1 ={
+			computed:{
+
+			}
+		}
+		var mix = {
+			data:{
+				msg:"信息"
+			},
+			computed:{showScore:function(){document.write("80  <br/>")}},
+				showMsg:function(){
+					document.write(this.msg);
+				},
+				methods:{
+					showAge:function(){
+						document.write("20   <br/>");
+					},
+
+					showName:function(){
+						document.write("张三  <br/>");
+					}
+			}
+		}
+		Vue.mixin({
+			methods:{
+				forAll:function(){
+					document.write("通用信息");
+				}
+			}
+		});
+		var app = new Vue({
+			el:"#app",
+			mixins:[mix,mix1],
+			methods:{
+				showName:function(){
+					document.write("白白");
+				}
+			}
+		})
+		var box = new Vue({
+			el:"#box",
+			mixins:[mix,mix1]
+		})
+	</script>
+</body>
+</html>

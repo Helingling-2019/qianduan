@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<style>
+		*{
+			margin:0;
+		padding:0;
+		}
+		ul,li{
+			list-style:none;
+		}
+		.list{
+			width:1200px;
+			margin:0 auto;
+		}
+		.list ul li{
+			float:left;
+			width:350px;
+			margin: 0 25px 25px;
+		}
+		.list ul li img{
+			width:350px;
+			height:350px;
+		}
+	</style>
+</head>
+<body>
+	<div class="list">
+		<ul>
+			<li><img class="lazy" src="images/loading.jpg" data-src="images/1.jpg" alt=" "></li>
+			<li><img class="lazy" src="images/loading.jpg" data-src="images/2.jpg" alt=" "></li>
+			<li><img class="lazy" src="images/loading.jpg" data-src="images/3.jpg" alt=" "></li>
+			<li><img class="lazy" src="images/loading.jpg" data-src="images/4.jpg" alt=" "></li>
+			<li><img class="lazy" src="images/loading.jpg" data-src="images/5.jpg" alt=" "></li>
+			<li><img class="lazy" src="images/loading.jpg" data-src="images/6.jpg" alt=" "></li>
+			<li><img class="lazy" src="images/loading.jpg" data-src="images/7.jpg" alt=" "></li>
+			<li><img class="lazy" src="images/loading.jpg" data-src="images/8.jpg" alt=" "></li>
+			<li><img class="lazy" src="images/loading.jpg" data-src="images/9.jpg" alt=" "></li>
+		</ul>
+	</div>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/jquery.lazyload.js?rere=fer"></script>
+	<script>
+		$(function() {
+		      $("img.lazy").lazyload({effect: "fadeIn"});
+		  });
+		/* var $img = document.querySelectorAll("img");
+		var $length= document.querySelectorAll("img").length;
+		for(var i =0;i<$length;i++){
+			var $dataSrc = $img[i].getArrtibute("data-src");
+			var $newImage = new Image();
+			$newImage.index = i;
+			$newImage.setArribute("src",$dataSrc);
+			$newImage.onload = fucntion(){
+				console.log($dataSrc);
+				var $dataSrc0 = $img[this.index].getArribute("data-src");
+				$img[this.index].setAttribute("src",$dataSrc0);
+			}
+		} */
+	</script>
+</body>
+</html>

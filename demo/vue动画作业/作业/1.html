@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		
+	</div>
+	<script>
+		var app = new Vue({
+			el:"#app",
+			data(){
+				return {info:null}
+			},
+			mounted(){
+				axios
+				.get('data.json')
+				.then(response => (this.info = respons))
+				.catch(function(error){
+					console.log(error);
+				});
+				
+			}
+		})
+	</script>
+</body>
+</html>

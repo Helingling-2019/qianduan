@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<link rel="stylesheet" href="layui/layui.css">
+	<style>
+		button{
+			width:120px;
+			height:42px;
+			background-color: red;
+			color: white;
+			
+		}
+		self-definition{
+			background-color: antiquewhite;
+		}
+	</style>
+</head>
+<body>
+	<div class="col-sm-8 col-lg-3">
+		<div class="row">
+			<div class="col-sm-8 ">
+				<div style="height:100px;background:yellow;"></div>
+			</div>
+			<div class="col-sm-8 ">
+				<div style="height:100px;background:blue"></div>
+			</div>、
+			
+		</div>
+	<button >登录</button>
+	<script src="layui/layui.js"></script>
+	<script>
+		document.querySelector("button").onclick = function(){
+			layui.use('layui',function(){
+				var layer = layui.layer;
+				layer.open({
+					type:0,
+					title:['购物车','color:green;font-size:16px;'],
+					content:'<h2>提示</h2><p>加入购物车</p>',
+					
+					skin:'self-definition',
+					area:['600px','300px'],
+					offset:['100px','10px'],
+					icon:2,
+					btn:['确认','取消'],
+					btnAlign:'c',
+					closeBtn:2,
+					shadow:['.6','red'],
+					shadClose:true,
+				})
+			});
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script type="text/javascript" src="js/jquery2.0.js"></script>
+	<script src="js/velocity.min.js"></script>
+	<style>
+		.box{
+			width:200px;
+			height:200px;
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+		$(".box").velocity({
+			backgroundColor:"#000000",
+			left:'100px',
+			},{
+				duration:450,
+				easing:"swing",
+				delay:1000
+		})
+	</script>
+</body>
+</html>

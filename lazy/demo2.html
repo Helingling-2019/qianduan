@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+	<ul class="pagination pagination-sm ">
+		
+	</ul>
+	<ul class="pager marginLeft">
+		<li class="previous disbled"><a href=" ">上一页</a></li>
+		<li class="next"><a href="">下一页</a></li>
+	</ul>
+	<script src="layui.js"></script>
+	<script >
+		layui.use("laypage",function(){
+			var laypage = layui.laypage;
+			laypage.render({
+				elem:'page',
+				count:600,
+				limit:10,
+				curr:2,
+				groups:3,
+				prev:"<i style='color:red'>previous</i>",
+				next:"next",
+				first:"首页",
+				last:"尾页",
+				theme:'gold'
+			})
+		})
+	</script>
+</body>
+</html>

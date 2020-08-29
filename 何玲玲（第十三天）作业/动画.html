@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<link rel="stylesheet" href="js/animate.css">
+	<style>
+		div{
+			width:100px;
+			height:100px;
+			background: skyblue;
+		}
+		.changeTime{
+			animation-duration: 5s;
+		}
+		img{
+			width:150px;
+			height:150px;
+		}
+	</style>
+</head>
+<body>
+	<div class="animated  shake ">
+		
+	</div>
+	<!-- <div style="height:1200px;">大容器</div> -->
+	<div class="animated  flash changeTime">
+		<img src="2.jpg">
+		</div>
+		<div class="animated infinite flip " style="background: salmon;"></div>
+		<div class="animated infinite tada" style="background: khaki;"></div>
+		<script type="text/javascript" src="js/wow.js"></script>
+		<script>
+			new WOW().init();
+		</script>
+</body>
+</html>

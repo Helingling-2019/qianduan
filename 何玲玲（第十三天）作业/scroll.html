@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script src="js/jquery2.0.js"></script>
+	<style>
+		*{margin: 0;padding: 0;}
+		a{text-decoration: none;}
+		.left{
+			position: absolute;
+			left:10px;
+			top:120px;
+			text-align: right;
+		}
+		.left img, .right img{
+			width: 100px;
+			height:299px;
+			display: block;
+			
+		}
+		.right{
+			position: absolute;
+			right:10px;
+			top:120px;
+			text-align: right;
+		}
+		.left span, .right span{
+			color:#333;
+			line-height: 30px;
+			margin-right: 3px;
+			font-size: 15px;
+			cursor: pointer;
+		}
+		.left span:hover, .right span:hover{
+			color:red;
+		}
+	</style>
+</head>
+<body>
+	<div class="left">
+		<a href="#"><img src="js/1.jpg" alt=""></a>
+		<span>关闭</span>
+	</div>
+	<div class="right">
+		<a href="#"><img src="js/2.jpg" alt=""></a>
+		<span>关闭</span>
+	</div>
+	<script>
+		var $both = $(".left,.right");
+		var $leftTop = $(".left").offset().top;
+		var $rightTop = $(".right").offset().top;
+		var flagLeft = true;
+		var flagRight = true;
+		$(window).on("srcoll",function(){
+			if(flagLeft || flagRight){
+				var srcollTop = $(window).srcollTop();
+				$both.animate({top:($leftTop + scrollTop)},30);
+			}
+		});
+		$(".left span , .right span").on("click",function(){
+			$(this).parent().hide();
+			if($(this).parent().is(".left")){
+				flagLeft = false;
+			}else{
+				flagRight = false;
+			}
+		});
+	</script>
+</body>
+</html>
